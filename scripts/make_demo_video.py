@@ -87,26 +87,40 @@ def main():
         pg.wait_for_timeout(400)
         pg.click("#run")
         pg.wait_for_timeout(1500)
-        shot(pg, 9.0, "4 项规则全红：路由未转人工 / 路由不合法 / 泄露手机号 / 承诺全额退款 —— 0.7ms 判定违规并升级人工复核")
+        shot(pg, 8.0, "4 项规则全红：路由未转人工 / 路由不合法 / 泄露手机号 / 承诺全额退款 —— 0.7ms 判定违规并升级人工复核")
 
-        hold(make_text_card("同一样本 · 正确路由", "Agent 将退款赔付场景转接人工客服，输出合规"), 2.5)
+        # ---- 闭环整改：检出 → 建议 → 整改 → 重检 ----
+        hold(make_text_card("质检反馈闭环", "检出违规 → 生成整改建议 → 应用整改 → 重检验证 fail→pass → 回归防复发"), 3.0)
+        pg.click("#suggestBtn")
+        pg.wait_for_timeout(1400)
+        shot(pg, 6.0, "整改建议按失败维度生成：路由策略增强 / 隐私规则增强 / 合规规则增强，对应 rule/knowledge/prompt 三种整改类型")
+
+        pg.click("button[data-dim='compliance']")
+        pg.wait_for_timeout(1400)
+        shot(pg, 6.0, "应用整改：真实写入规则包（新增 R-COMP-010、规则总数 10、版本 0.3），带 pattern 立即生效，整改留痕并登记回归用例")
+
+        pg.click("#recheckBtn2")
+        pg.wait_for_timeout(1400)
+        shot(pg, 7.0, "重检验证：整改前 FAIL → 整改后 PASS（得分 1.00）—— Agent 持续进化的闭环真实落地")
+
+        hold(make_text_card("同一样本 · 正确路由", "Agent 将退款赔付场景转接人工客服，输出合规"), 2.0)
         pg.click("button[data-preset='good']")
         pg.wait_for_timeout(400)
         pg.click("#run")
         pg.wait_for_timeout(1500)
-        shot(pg, 8.0, "合规样本：全通道通过，不升级人工 —— 质检只拦违规，不误伤正常业务")
+        shot(pg, 6.0, "合规样本：全通道通过，不升级人工 —— 质检只拦违规，不误伤正常业务")
 
-        hold(make_text_card("可插拔规则包 · 汽车金融", "引擎零改动，仅切换规则定义：催收合规 / 征信红线 / 减免承诺"), 3.0)
+        hold(make_text_card("可插拔规则包 · 汽车金融", "引擎零改动，仅切换规则定义：催收合规 / 征信红线 / 减免承诺"), 2.5)
         pg.click("button[data-preset='finance']")
         pg.wait_for_timeout(400)
         pg.click("#run")
         pg.wait_for_timeout(1500)
-        shot(pg, 9.0, "金融违规样本：减免利息承诺 + 不上征信 + 凌晨联系 —— 金融规则包全部拦截")
+        shot(pg, 8.0, "金融违规样本：减免利息承诺 + 不上征信 + 凌晨联系 —— 金融规则包全部拦截")
 
-        hold(make_text_card("批量全量质检", "从抽检升级为全量：一次质检 40 条，全部正确分类"), 2.5)
+        hold(make_text_card("批量全量质检", "从抽检升级为全量：一次质检 40 条，全部正确分类"), 2.0)
         pg.click("#batch")
         pg.wait_for_timeout(1800)
-        shot(pg, 9.0, "批量统计：40 条样本 100% 正确分类，平均 0.4ms/条，违规全部检出并升级人工 —— 全量质检成为可能")
+        shot(pg, 8.0, "批量统计：40 条样本 100% 正确分类，平均 0.4ms/条，违规全部检出并升级人工 —— 全量质检成为可能")
 
         b.close()
 
