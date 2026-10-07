@@ -35,6 +35,30 @@
         "食品安全"
       ],
       "source": "quality-feedback-loop"
+    },
+    {
+      "id": "c0a7cb85",
+      "time": "2026-10-07T13:27:51.393593+00:00",
+      "status": "pending_publish",
+      "question": "食品发霉如何申请退款？",
+      "answer": "需核实订单与凭证后由人工处理，禁止自动承诺退款。",
+      "tags": [
+        "退换退款",
+        "食品安全"
+      ],
+      "source": "quality-feedback-loop"
+    },
+    {
+      "id": "da06df2d",
+      "time": "2026-10-07T13:28:54.022197+00:00",
+      "status": "pending_publish",
+      "question": "食品发霉如何申请退款？",
+      "answer": "需核实订单与凭证后由人工处理，禁止自动承诺退款。",
+      "tags": [
+        "退换退款",
+        "食品安全"
+      ],
+      "source": "quality-feedback-loop"
     }
   ]
 }

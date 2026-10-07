@@ -1,0 +1,25 @@
+{
+  "note": "演示用合成示例订单数据（脱敏标注，非真实客户）。用于展示质检数据反哺复购节奏分析的能力。",
+  "orders": [
+    {"order_id": "O-1001", "customer_id": "C-001", "days_offset": 0,  "amount": 129},
+    {"order_id": "O-1002", "customer_id": "C-001", "days_offset": 27, "amount": 259},
+    {"order_id": "O-1003", "customer_id": "C-001", "days_offset": 58, "amount": 199},
+    {"order_id": "O-1004", "customer_id": "C-002", "days_offset": 0,  "amount": 89},
+    {"order_id": "O-1005", "customer_id": "C-002", "days_offset": 33, "amount": 149},
+    {"order_id": "O-1006", "customer_id": "C-003", "days_offset": 0,  "amount": 399},
+    {"order_id": "O-1007", "customer_id": "C-003", "days_offset": 21, "amount": 459},
+    {"order_id": "O-1008", "customer_id": "C-003", "days_offset": 45, "amount": 529},
+    {"order_id": "O-1009", "customer_id": "C-004", "days_offset": 0,  "amount": 59},
+    {"order_id": "O-1010", "customer_id": "C-005", "days_offset": 0,  "amount": 219},
+    {"order_id": "O-1011", "customer_id": "C-005", "days_offset": 62, "amount": 199},
+    {"order_id": "O-1012", "customer_id": "C-006", "days_offset": 0,  "amount": 169},
+    {"order_id": "O-1013", "customer_id": "C-006", "days_offset": 18, "amount": 239},
+    {"order_id": "O-1014", "customer_id": "C-007", "days_offset": 0,  "amount": 99},
+    {"order_id": "O-1015", "customer_id": "C-007", "days_offset": 49, "amount": 129},
+    {"order_id": "O-1016", "customer_id": "C-008", "days_offset": 0,  "amount": 329},
+    {"order_id": "O-1017", "customer_id": "C-008", "days_offset": 14, "amount": 359},
+    {"order_id": "O-1018", "customer_id": "C-008", "days_offset": 37, "amount": 419},
+    {"order_id": "O-1019", "customer_id": "C-009", "days_offset": 0,  "amount": 79},
+    {"order_id": "O-1020", "customer_id": "C-010", "days_offset": 0,  "amount": 189}
+  ]
+}

@@ -21,7 +21,8 @@ AgentCheck 是一个**引擎通用、规则可插拔、裁判可替换**的 Agen
 | 置信度分级升级 | 低置信不硬判，升级人工复核，机器初筛 + 人工终审闭环 |
 | 证据链可解释 | 每条判定带命中词/依据/置信度，支持整改闭环与审计 |
 | 质检反馈闭环 | 检出 → 整改建议（规则增强/知识补全/提示词优化）→ 应用整改 → 重检验证 → 回归用例防复发 |
-| 统一质检 API | `/api/quality/*`：单条 / 批量 / 规则包 / 引擎状态 / 反馈闭环 |
+| 数据反哺 | 质检产出反哺业务：人工培训课件 / 客户画像 / 复购节奏分析（数据生产入口） |
+| 统一质检 API | `/api/quality/*`：单条 / 批量 / 规则包 / 引擎状态 / 反馈闭环 / 数据反哺 |
 
 ## 技术架构
 
@@ -43,7 +44,8 @@ Agent 输出（回复 + 路由决策）
 - `backend/quality_engine.py` — 主流程：三通道聚合 → 维度得分 → 总体结论 → 人工复核升级
 - `backend/quality_api.py` — FastAPI：`/check` `/batch` `/packages` `/health` `/feedback/*`
 - `backend/quality_feedback.py` — 反馈闭环：整改建议生成 / 真实写库应用 / 重检验证 / 回归用例 / 留痕
-- `frontend/dist/quality-panel.html` — 质检工作台（报告渲染 / 批量仪表 / 规则包切换 / 闭环整改）
+- `backend/quality_insights.py` — 数据反哺：培训课件 / 客户画像 / 复购节奏
+- `frontend/dist/quality-panel.html` — 质检工作台（报告渲染 / 批量仪表 / 规则包切换 / 闭环整改 / 数据反哺）
 
 ## 规则包（可插拔）
 

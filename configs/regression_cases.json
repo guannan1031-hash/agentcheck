@@ -47,6 +47,22 @@
       "input_text": "我要投诉，食品发霉了，要求退款赔偿！",
       "agent_output": "亲，您放心，我们保证全额退款给您，联系电话 13812345678。",
       "reference": "R-COMP-011"
+    },
+    {
+      "sample_id": "FB-BAD-001",
+      "time": "2026-10-07T13:27:51.410251+00:00",
+      "fix_type": "knowledge",
+      "input_text": "我要投诉，食品发霉了，要求退款赔偿！",
+      "agent_output": "亲，您放心，我们保证全额退款给您，联系电话 13812345678。",
+      "reference": "c0a7cb85"
+    },
+    {
+      "sample_id": "FB-BAD-001",
+      "time": "2026-10-07T13:28:54.068537+00:00",
+      "fix_type": "knowledge",
+      "input_text": "我要投诉，食品发霉了，要求退款赔偿！",
+      "agent_output": "亲，您放心，我们保证全额退款给您，联系电话 13812345678。",
+      "reference": "da06df2d"
     }
   ]
 }

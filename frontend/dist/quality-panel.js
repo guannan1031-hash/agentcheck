@@ -222,9 +222,39 @@ async function runBatch() {
   } finally { btn.disabled = false; }
 }
 
+async function renderInsights() {
+  const zone = document.getElementById('insightsZone');
+  if (!zone) return;
+  try {
+    const [training, profile, repurchase] = await Promise.all([
+      api('/api/quality/insights/training?dimension=compliance'),
+      api('/api/quality/insights/profile'),
+      api('/api/quality/insights/repurchase'),
+    ]);
+    const topDomains = profile.domain_distribution.slice(0, 3)
+      .map(d => d.domain + ' ' + d.pct + '%').join(' · ');
+    const topTerms = profile.top_terms.slice(0, 5).map(t => t.term).join(' / ');
+    zone.innerHTML =
+      '<div class="insight"><div class="t">📚 人工培训课件</div>' +
+      '<div class="c">' + esc(training.title) + '<br>' +
+      '违规表达：' + esc(training.top_violations.slice(0, 3).join(' / ')) + '<br>' +
+      '<span class="muted">示例整改：' + esc(training.case_example.good) + '</span></div></div>' +
+      '<div class="insight"><div class="t">🧑 客户画像</div>' +
+      '<div class="c">' + profile.total_samples + ' 场景聚合 · 诉求域 Top：' + esc(topDomains) +
+      '<br><span class="muted">高频诉求词：' + esc(topTerms) + '</span></div></div>' +
+      '<div class="insight"><div class="t">🔄 复购节奏</div>' +
+      '<div class="c">复购率 ' + repurchase.repurchase_rate + '% · 平均复购周期 ' +
+      repurchase.avg_repeat_cycle_days + ' 天<br>' +
+      '<span class="muted">' + esc(repurchase.source) + '</span></div></div>';
+  } catch (e) {
+    zone.innerHTML = '<div class="hint">数据反哺加载失败：' + esc(String(e)) + '</div>';
+  }
+}
+
 document.querySelectorAll('[data-preset]').forEach(function (btn) {
   btn.addEventListener('click', function () { loadPreset(btn.dataset.preset); });
 });
 $('run').addEventListener('click', runCheck);
 $('batch').addEventListener('click', runBatch);
 init();
+renderInsights();

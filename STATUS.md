@@ -1,30 +1,39 @@
-# 项目进度 — Project 014
+# 项目进度 — Project 014 · AgentCheck 质检工具
+
 ## 最近更新
 - 更新时间：2026-10-07
-- 当前状态：D1 完成，进入 D2（质检引擎）
+- 当前状态：**D1–D4 全部完成**，含质检反馈闭环；待 GitHub 发布 + 三件套邮件提交
+
 ## 已完成
-- [2026-10-07] 建立项目骨架（README/STATUS/AGENTS/.gitignore + src/docs/assets/deliverables）。
-- [2026-10-07] 从 Project 006 复制基线资产：backend、frontend/src+dist、configs（218 场景）、prompts、demo-data、tests（基线）、scripts、规范文档、licenses。
-- [2026-10-07] 初始化独立 Git（参赛仓库，不带 006 私有历史）。
-- [2026-10-07] **D1 完成**：
-  - 演示 Agent 跑通：uvicorn backend.app:create_app @ 127.0.0.1:8878，首页 200，API 路由确认（/api/messages、/api/conversations、/api/tickets 等 51 个路由）。
-  - 质检数据集分析：benchmark 218 cases（expected_route：needs_evidence 159 / human_triage 59），scenarios 218 场景（10 域、risk_level：conditional 159 / high 59）。
-  - 规则包 schema 定义：`configs/quality_rules_ecommerce.json`（5 维度 × 8 规则，确定性正则 + LLM 裁判混合）。
-  - 辅助脚本：`scripts/inspect_data.py`、`scripts/analyze_distribution.py`。
+- [2026-10-07] **D1**：演示 Agent 跑通（uvicorn @ 8878）、数据分布分析（218 场景 / 218 benchmark）、电商规则包 schema（5 维度 × 8 规则）。
+- [2026-10-07] **D2**：三通道质检引擎——规则层（复用 safety.py + 新增合规/金融正则 + **通用 pattern 规则**）、裁判层（JevJudge / LLMJudge / 降级链）、引擎聚合（维度加权 → overall → 人工复核升级）。引擎 12 项测试通过。
+- [2026-10-07] **D3**：质检 API（/check /batch /packages /health）+ 汽车金融第二规则包（可插拔性 4 项测试）+ 质检工作台面板（CSP 兼容：外置 CSS/JS + addEventListener）。批量 40 条实测 0.4ms/条、全部分类正确。
+- [2026-10-07] **D4（进行中→基本完成）**：介绍 PDF（340KB，按评审四维度）+ 演示视频（**76s 含闭环段**，1.2MB）+ README 产品化 + 三件套就绪。
+- [2026-10-07] **质检反馈闭环（用户追加需求，已实现）**：
+  - `backend/quality_feedback.py`：suggest_fixes（失败维度→整改建议）/ apply_fix（真实写规则包 JSON / 知识补全 / 提示词日志）/ recheck（fail→pass 验证）/ 回归用例登记 / 留痕日志。
+  - 规则引擎支持 **pattern 驱动自定义规则**：闭环新增规则带正则立即生效（R-COMP-009/010 实测拦截"我们帮您搞定"）。
+  - API：/feedback/suggest | apply | recheck | log；面板闭环交互（生成建议→应用整改→重检验证）headless 全流程验证通过（**FAIL→PASS，得分 1.00**）。
+  - 闭环测试 5 项通过（引擎+闭环共 17 项，0.81s）。
+
 ## 验证
-- 环境：Python 3.12.10（venv 手动创建，绕过 setup_windows.ps1 编码问题）、依赖安装完成。
-- 演示 Agent：HTTP 200 响应正常，服务保持后台运行（task d15753eb）。
-- 数据文件：benchmark/scenarios 均可解析，218+218 条完整。
-## 已知问题
-- `setup_windows.ps1`/`start_windows.ps1` 为无 BOM UTF-8，PowerShell 5.1 按 ANSI 解析会失败；已用手动 venv + uvicorn 直跑绕过，后续启动沿用此方式或转 UTF-8 BOM。
-- Jev API 可用性未验证（D2 探测，降级豆包/DeepSeek）。
-- 演示 Agent 依赖后端数据为合成/脱敏，公开仓库时需保持。
+- 环境：Python 3.12.10 venv；服务 uvicorn @ 127.0.0.1:8878（后台 task 798b641e）。
+- 测试基线：质检引擎 12 + 闭环 5 = 17 项通过；006 基线 98 项。
+- 闭环全流程（HTTP）：suggest（fail→3 建议）→ apply rule（写库 R-COMP-009，v0.2）→ recheck（fail→pass）→ feedback log 留痕；面板 UI 同链路验证（R-COMP-010，v0.3）。
+- 视频：demo.mp4 76s @25fps 1280×720，抽帧验证内容正确（违规报告/闭环/批量统计）。
+
+## 已知问题 / 待办
+- **GitHub 公开仓库未发布**：无 PAT / gh 未装；需用户提供 PAT 或浏览器协助（`git credential fill` 无凭证会挂起，勿再试）。
+- **三件套邮件提交未发**（截止 10-11 24:00，发 oscc@oschina.cn）：代码仓库链接 + 介绍 PDF + 演示视频链接；需用户账号发送或代写草稿待确认。
+- 知识补全整改条目写入 demo-data/knowledge_additions.json（pending_publish），未并入 006 /api/knowledge 检索链（演示可展示新增条目与发布流程）。
+- 014 的 AGENTS.md 为 006 旧身份（路径 /Users/ekzc 失效），公开仓库前建议重写。
+- Jev API Key 未提供：演示跑 rule-only，面板标"裁判：规则层 only（未配置裁判）"；Jev 是核心卖点，建议至少一次真实 Jev 判定。
+
 ## 下一步
-- D2：质检引擎三通道（规则层扩展 safety.py、裁判接口 + Jev 探测、LLM 深析复用 model.py），输出结构化判定。
-- D2：质检样本 schema（输入对话 + Agent 输出 + 路由决策 → 报告 JSON）。
+1. GitHub 发布（PAT 或浏览器）→ 拿公开仓库链接
+2. 三件套邮件提交（10-11 截止）
+3. 可选：Jev Key 接入、知识发布链路、AGENTS.md 重写
+
 ## 知识库沉淀
-- 决策：暂无
-- 踩坑：PowerShell 5.1 读取无 BOM UTF-8 .ps1 中文乱码致解析失败（2026-10-07，014）
-- 方法：暂无
-## Notion 同步记录
-- 待确认是否同步 014 到 Notion 项目库。
+- 决策：质检工具定位"引擎通用 + 规则可插拔 + 裁判可替换 + 闭环可进化"（2026-10-07，014）
+- 踩坑：PowerShell 5.1 无 BOM UTF-8 .ps1 乱码；git credential fill 无凭证挂起拖死通道；Playwright chromium 下载 ECONNRESET（改 channel="msedge"）；006 CSP script-src 'self' 拦内联脚本；imageio 不支持 pix_fmt 关键字参数
+- 方法：闭环 = 检出→建议→整改→重检→回归（规则带 pattern 立即生效）

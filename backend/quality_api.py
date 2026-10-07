@@ -20,6 +20,7 @@ from pydantic import BaseModel, Field
 from .quality_engine import QualitySample, run_quality_check
 from .quality_judges import JudgeRouter, JevJudge, LLMJudge
 from .quality_feedback import suggest_fixes, apply_fix, recheck, get_feedback_log
+from .quality_insights import training_courseware, customer_profile, repurchase_rhythm
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE_DIR = ROOT / "configs"
@@ -182,6 +183,20 @@ def register_quality(app):
     @router.get("/feedback/log")
     def feedback_log(limit: int = 20):
         return get_feedback_log(limit)
+
+    # ---- 数据反哺：培训课件 / 客户画像 / 复购节奏 ----
+
+    @router.get("/insights/training")
+    def insights_training(package: str = "ecommerce", dimension: str = "compliance"):
+        return training_courseware(package, dimension)
+
+    @router.get("/insights/profile")
+    def insights_profile():
+        return customer_profile()
+
+    @router.get("/insights/repurchase")
+    def insights_repurchase():
+        return repurchase_rhythm()
 
     @router.get("/health")
     def health():
