@@ -9,5 +9,7 @@ build/
 state/
 output/
 deliverables/demo_reports.json
+deliverables/shots/
+deliverables/frames/
 .DS_Store
 Thumbs.db
