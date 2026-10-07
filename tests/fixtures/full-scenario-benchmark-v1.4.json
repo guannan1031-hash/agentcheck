@@ -1,0 +1,1974 @@
+{
+  "meta": {
+    "version": "1.4-p0-draft",
+    "source": "售后场景流程最终版.xlsx",
+    "source_sha256": "8842d1acef3d5c25690e8e42385f963b1891db1ad46e3f72675b349cb1950022",
+    "scenario_count": 218,
+    "review_status": "business_review_required",
+    "safe_scope": "仅保留场景名、来源坐标和设计元数据；不含员工名、客户原话或完整话术"
+  },
+  "cases": [
+    {
+      "case_id": "TC-S001",
+      "scene_id": "S001",
+      "synthetic_text": "合成测试：客户咨询“发货前修改信息”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S001",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S002",
+      "scene_id": "S002",
+      "synthetic_text": "合成测试：客户咨询“催物流/催发货”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S002",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S003",
+      "scene_id": "S003",
+      "synthetic_text": "合成测试：客户咨询“发货时效/长时间未发货”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S003",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S004",
+      "scene_id": "S004",
+      "synthetic_text": "合成测试：客户咨询“超时发货/超时揽收（仓库责任）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S004",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S005",
+      "scene_id": "S005",
+      "synthetic_text": "合成测试：客户咨询“物流无任何走件/已发货无物流信息”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S005",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S006",
+      "scene_id": "S006",
+      "synthetic_text": "合成测试：客户咨询“物流滞留多日/物流信息停滞不更新”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S006",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S007",
+      "scene_id": "S007",
+      "synthetic_text": "合成测试：客户咨询“物流信息中断/停滞多日”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S007",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S008",
+      "scene_id": "S008",
+      "synthetic_text": "合成测试：客户咨询“物流配送超时/承诺时效未到”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S008",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S009",
+      "scene_id": "S009",
+      "synthetic_text": "合成测试：客户咨询“签收未收到”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S009",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S010",
+      "scene_id": "S010",
+      "synthetic_text": "合成测试：客户咨询“物流信息显示签收但客户未收到”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S010",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S011",
+      "scene_id": "S011",
+      "synthetic_text": "合成测试：客户咨询“物流签收地址与收货地址不符/签收异常”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S011",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S012",
+      "scene_id": "S012",
+      "synthetic_text": "合成测试：客户咨询“派件错地址/分拣错误”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S012",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S013",
+      "scene_id": "S013",
+      "synthetic_text": "合成测试：客户咨询“快递员拒绝送货上门/擅自放快递柜”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S013",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S014",
+      "scene_id": "S014",
+      "synthetic_text": "合成测试：客户咨询“快递放代收点/快递柜未通知客户”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S014",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S015",
+      "scene_id": "S015",
+      "synthetic_text": "合成测试：客户咨询“快递员服务问题/辱骂客户”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S015",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S016",
+      "scene_id": "S016",
+      "synthetic_text": "合成测试：客户咨询“送货上门”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S016",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S017",
+      "scene_id": "S017",
+      "synthetic_text": "合成测试：客户咨询“改地址（同区）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S017",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S018",
+      "scene_id": "S018",
+      "synthetic_text": "合成测试：客户咨询“改地址（跨省/跨区）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S018",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S019",
+      "scene_id": "S019",
+      "synthetic_text": "合成测试：客户咨询“已发货拦截（未到派件网点）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S019",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S020",
+      "scene_id": "S020",
+      "synthetic_text": "合成测试：客户咨询“已发货拦截（已到派件网点）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S020",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S021",
+      "scene_id": "S021",
+      "synthetic_text": "合成测试：客户咨询“拦截先行退/急速退款”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S021",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S022",
+      "scene_id": "S022",
+      "synthetic_text": "合成测试：客户咨询“确认丢件”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S022",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S023",
+      "scene_id": "S023",
+      "synthetic_text": "合成测试：客户咨询“物流破损要求赔偿”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S023",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S024",
+      "scene_id": "S024",
+      "synthetic_text": "合成测试：客户咨询“物流原件返回”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S024",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S025",
+      "scene_id": "S025",
+      "synthetic_text": "合成测试：客户咨询“退回物流停滞/无记录”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S025",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S026",
+      "scene_id": "S026",
+      "synthetic_text": "合成测试：客户咨询“等待包裹退回”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S026",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S027",
+      "scene_id": "S027",
+      "synthetic_text": "合成测试：客户咨询“拒收退回/退回中商品处理（客户拒收后）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S027",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S028",
+      "scene_id": "S028",
+      "synthetic_text": "合成测试：客户咨询“重发后无单号”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S028",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S029",
+      "scene_id": "S029",
+      "synthetic_text": "合成测试：客户咨询“补发时效/补发后无物流/补发再次异常”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S029",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S030",
+      "scene_id": "S030",
+      "synthetic_text": "合成测试：客户咨询“分包裹发货/拆单发货部分未到”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S030",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S031",
+      "scene_id": "S031",
+      "synthetic_text": "合成测试：客户咨询“大促期间/节假日发货延迟/客服响应慢”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S031",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S032",
+      "scene_id": "S032",
+      "synthetic_text": "合成测试：客户咨询“外包装破损/轻微变形（不影响使用）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S032",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S033",
+      "scene_id": "S033",
+      "synthetic_text": "合成测试：客户咨询“运输磨损/外箱受潮（不影响使用）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S033",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S034",
+      "scene_id": "S034",
+      "synthetic_text": "合成测试：客户咨询“罐体漏液/瓶身破裂/产品泄漏（影响使用）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S034",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S035",
+      "scene_id": "S035",
+      "synthetic_text": "合成测试：客户咨询“玻璃瓶爆裂/安全隐患（影响使用）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S035",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S036",
+      "scene_id": "S036",
+      "synthetic_text": "合成测试：客户咨询“多件商品部分破损/部分退款处理”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S036",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S037",
+      "scene_id": "S037",
+      "synthetic_text": "合成测试：客户咨询“多瓶装/多联包部分破损”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S037",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S038",
+      "scene_id": "S038",
+      "synthetic_text": "合成测试：客户咨询“连续两次收到破损/重复购买破损”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S038",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S039",
+      "scene_id": "S039",
+      "synthetic_text": "合成测试：客户咨询“补发后再次破损/二次包装破损（多次破损）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S039",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S040",
+      "scene_id": "S040",
+      "synthetic_text": "合成测试：客户咨询“破损拒收/破损签收后退回处理”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S040",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S041",
+      "scene_id": "S041",
+      "synthetic_text": "合成测试：客户咨询“破损商品处理方式争议（无需退回vs客户要求退回）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S041",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S042",
+      "scene_id": "S042",
+      "synthetic_text": "合成测试：客户咨询“仓内破损（仓库发货前已破损/包装不当导致破损）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S042",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S043",
+      "scene_id": "S043",
+      "synthetic_text": "合成测试：客户咨询“大包装/整箱购买问题”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S043",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S044",
+      "scene_id": "S044",
+      "synthetic_text": "合成测试：客户咨询“产品变质/发霉”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S044",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S045",
+      "scene_id": "S045",
+      "synthetic_text": "合成测试：客户咨询“异物/不明物体/发黑发霉”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S045",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S046",
+      "scene_id": "S046",
+      "synthetic_text": "合成测试：客户咨询“白色絮状物”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S046",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S047",
+      "scene_id": "S047",
+      "synthetic_text": "合成测试：客户咨询“咖啡粉末状挂壁严重”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S047",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S048",
+      "scene_id": "S048",
+      "synthetic_text": "合成测试：客户咨询“咖啡无法打发”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S048",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S049",
+      "scene_id": "S049",
+      "synthetic_text": "合成测试：客户咨询“粉末结块/冲泡不开”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S049",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S050",
+      "scene_id": "S050",
+      "synthetic_text": "合成测试：客户咨询“封口贴断裂”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S050",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S051",
+      "scene_id": "S051",
+      "synthetic_text": "合成测试：客户咨询“临期/过期”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S051",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S052",
+      "scene_id": "S052",
+      "synthetic_text": "合成测试：客户咨询“临期产品未标注/客户不知情”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S052",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S053",
+      "scene_id": "S053",
+      "synthetic_text": "合成测试：客户咨询“产品日期不满（非临期）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S053",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S054",
+      "scene_id": "S054",
+      "synthetic_text": "合成测试：客户咨询“产品颜色/性状异常（与正常产品不同）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S054",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S055",
+      "scene_id": "S055",
+      "synthetic_text": "合成测试：客户咨询“摩可纳内部咖啡颜色不同/批次颜色差异（摩可纳定制）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S055",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S056",
+      "scene_id": "S056",
+      "synthetic_text": "合成测试：客户咨询“产品有异味/怪味（非变质但口感异常）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S056",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S057",
+      "scene_id": "S057",
+      "synthetic_text": "合成测试：客户咨询“产品开封后操作不当导致变质/客户自认变质”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S057",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S058",
+      "scene_id": "S058",
+      "synthetic_text": "合成测试：客户咨询“开封后变质/发霉（无法判定责任）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S058",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S059",
+      "scene_id": "S059",
+      "synthetic_text": "合成测试：客户咨询“饮品发酵/有气泡（非碳酸饮料）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S059",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S060",
+      "scene_id": "S060",
+      "synthetic_text": "合成测试：客户咨询“食品包装漏气/涨袋”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S060",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S061",
+      "scene_id": "S061",
+      "synthetic_text": "合成测试：客户咨询“饮料胀包/鼓包”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S061",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S062",
+      "scene_id": "S062",
+      "synthetic_text": "合成测试：客户咨询“酒水漏气/跑酒/挥发”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S062",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S063",
+      "scene_id": "S063",
+      "synthetic_text": "合成测试：客户咨询“酒水沉淀物/浑浊”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S063",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S064",
+      "scene_id": "S064",
+      "synthetic_text": "合成测试：客户咨询“酒水年份/产地不符”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S064",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S065",
+      "scene_id": "S065",
+      "synthetic_text": "合成测试：客户咨询“商品瑕疵/轻微外观问题（不影响使用）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S065",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S066",
+      "scene_id": "S066",
+      "synthetic_text": "合成测试：客户咨询“错发过期商品/发过期商品（食品安全法赔付）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S066",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S067",
+      "scene_id": "S067",
+      "synthetic_text": "合成测试：客户咨询“商品品质不可补偿（主观不满/非质量问题不补偿）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S067",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S068",
+      "scene_id": "S068",
+      "synthetic_text": "合成测试：客户咨询“饮用后腹泻/肠胃不适（轻微症状）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S068",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S069",
+      "scene_id": "S069",
+      "synthetic_text": "合成测试：客户咨询“腹泻要求赔付（无就医凭证）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S069",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S070",
+      "scene_id": "S070",
+      "synthetic_text": "合成测试：客户咨询“腹泻要求赔付（有就医凭证）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S070",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S071",
+      "scene_id": "S071",
+      "synthetic_text": "合成测试：客户咨询“过敏/身体不适”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S071",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S072",
+      "scene_id": "S072",
+      "synthetic_text": "合成测试：客户咨询“口感不好/太苦/太甜”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S072",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S073",
+      "scene_id": "S073",
+      "synthetic_text": "合成测试：客户咨询“投诉口感差”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S073",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S074",
+      "scene_id": "S074",
+      "synthetic_text": "合成测试：客户咨询“产品批次口感不一致/口感变差”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S074",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S075",
+      "scene_id": "S075",
+      "synthetic_text": "合成测试：客户咨询“产品口感/味道与描述不符”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S075",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S076",
+      "scene_id": "S076",
+      "synthetic_text": "合成测试：客户咨询“咖啡酸味过重/太酸无法接受”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S076",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S077",
+      "scene_id": "S077",
+      "synthetic_text": "合成测试：客户咨询“提神效果不达预期（咖啡类产品功能质疑）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S077",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S078",
+      "scene_id": "S078",
+      "synthetic_text": "合成测试：客户咨询“0糖/低糖/无糖产品口感质疑”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S078",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S079",
+      "scene_id": "S079",
+      "synthetic_text": "合成测试：客户咨询“酒水口感不对/瓶差/批次差异”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S079",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S080",
+      "scene_id": "S080",
+      "synthetic_text": "合成测试：客户咨询“口味/产品版本不符（新老包装）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S080",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S081",
+      "scene_id": "S081",
+      "synthetic_text": "合成测试：客户咨询“价格/性价比不值（产品价值感不满）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S081",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S082",
+      "scene_id": "S082",
+      "synthetic_text": "合成测试：客户咨询“价格投诉买贵了”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S082",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S083",
+      "scene_id": "S083",
+      "synthetic_text": "合成测试：客户咨询“错发”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S083",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S084",
+      "scene_id": "S084",
+      "synthetic_text": "合成测试：客户咨询“错发后客户已使用错发商品（无意愿退回）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S084",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S085",
+      "scene_id": "S085",
+      "synthetic_text": "合成测试：客户咨询“商品错配（仓库配货错误/发错SKU）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S085",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S086",
+      "scene_id": "S086",
+      "synthetic_text": "合成测试：客户咨询“漏发/少件”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S086",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S087",
+      "scene_id": "S087",
+      "synthetic_text": "合成测试：客户咨询“商品漏配（仓库已配货但漏装出库）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S087",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S088",
+      "scene_id": "S088",
+      "synthetic_text": "合成测试：客户咨询“漏发后客户要求全单退款/拒收剩余商品”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S088",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S089",
+      "scene_id": "S089",
+      "synthetic_text": "合成测试：客户咨询“空包”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S089",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S090",
+      "scene_id": "S090",
+      "synthetic_text": "合成测试：客户咨询“无责-错漏发（仓库核实无错漏发）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S090",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S091",
+      "scene_id": "S091",
+      "synthetic_text": "合成测试：客户咨询“批量订单/大额订单问题”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S091",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S092",
+      "scene_id": "S092",
+      "synthetic_text": "合成测试：客户咨询“赠品问题（少发/破损/不一致）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S092",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S093",
+      "scene_id": "S093",
+      "synthetic_text": "合成测试：客户咨询“赠品问题协商赔付/赠品价值折算争议”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S093",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S094",
+      "scene_id": "S094",
+      "synthetic_text": "合成测试：客户咨询“赠品玻璃瓶爆裂/安全隐患（影响使用）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S094",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S095",
+      "scene_id": "S095",
+      "synthetic_text": "合成测试：客户咨询“赠品库存不足/补发延迟”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S095",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S096",
+      "scene_id": "S096",
+      "synthetic_text": "合成测试：客户咨询“赠品数量兑换完成/满赠活动赠品已赠完（限量赠完无法补发）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S096",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S097",
+      "scene_id": "S097",
+      "synthetic_text": "合成测试：客户咨询“满赠活动异常”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S097",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S098",
+      "scene_id": "S098",
+      "synthetic_text": "合成测试：客户咨询“满赠活动门槛误解/未达标要求赠品”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S098",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S099",
+      "scene_id": "S099",
+      "synthetic_text": "合成测试：客户咨询“满赠活动赠品与主商品到货时间不同步”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S099",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S100",
+      "scene_id": "S100",
+      "synthetic_text": "合成测试：客户咨询“满赠活动赠品变更/替换未通知客户”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S100",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S101",
+      "scene_id": "S101",
+      "synthetic_text": "合成测试：客户咨询“满赠活动赠品优惠券/电子券未到账”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S101",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S102",
+      "scene_id": "S102",
+      "synthetic_text": "合成测试：客户咨询“满赠活动叠加互斥/优惠不叠加”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S102",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S103",
+      "scene_id": "S103",
+      "synthetic_text": "合成测试：客户咨询“赠品与直播间描述不符”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S103",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S104",
+      "scene_id": "S104",
+      "synthetic_text": "合成测试：客户咨询“直播间下单未享直播间优惠/主播承诺未兑现”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S104",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S105",
+      "scene_id": "S105",
+      "synthetic_text": "合成测试：客户咨询“直播间中奖/免单活动”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S105",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S106",
+      "scene_id": "S106",
+      "synthetic_text": "合成测试：客户咨询“试饮活动/试用品未收到”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S106",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S107",
+      "scene_id": "S107",
+      "synthetic_text": "合成测试：客户咨询“扫码领红包/领现金失败”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S107",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S108",
+      "scene_id": "S108",
+      "synthetic_text": "合成测试：客户咨询“抽奖活动/转盘抽奖争议（未中奖/奖品不符）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S108",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S109",
+      "scene_id": "S109",
+      "synthetic_text": "合成测试：客户咨询“新人专享价/首单优惠未享受”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S109",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S110",
+      "scene_id": "S110",
+      "synthetic_text": "合成测试：客户咨询“活动-客户体验补偿（活动结果不满）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S110",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S111",
+      "scene_id": "S111",
+      "synthetic_text": "合成测试：客户咨询“差价售后（保价/差价补偿）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S111",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S112",
+      "scene_id": "S112",
+      "synthetic_text": "合成测试：客户咨询“退定金差价（尾款未支付/忘记支付）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S112",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S113",
+      "scene_id": "S113",
+      "synthetic_text": "合成测试：客户咨询“优惠券差价（忘记使用优惠券）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S113",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S114",
+      "scene_id": "S114",
+      "synthetic_text": "合成测试：客户咨询“7天无理由退货”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S114",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S115",
+      "scene_id": "S115",
+      "synthetic_text": "合成测试：客户咨询“不支持7天无理由”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S115",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S116",
+      "scene_id": "S116",
+      "synthetic_text": "合成测试：客户咨询“已拆封/已使用-不喜欢”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S116",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S117",
+      "scene_id": "S117",
+      "synthetic_text": "合成测试：客户咨询“退货政策不满意（对退货规则有异议）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S117",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S118",
+      "scene_id": "S118",
+      "synthetic_text": "合成测试：客户咨询“询问退款原因”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S118",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S119",
+      "scene_id": "S119",
+      "synthetic_text": "合成测试：客户咨询“修改退款原因”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S119",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S120",
+      "scene_id": "S120",
+      "synthetic_text": "合成测试：客户咨询“撤销退款申请”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S120",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S121",
+      "scene_id": "S121",
+      "synthetic_text": "合成测试：客户咨询“仅退款申请”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S121",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S122",
+      "scene_id": "S122",
+      "synthetic_text": "合成测试：客户咨询“拼多多仅退款/平台强制退款客户要求退还商品”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S122",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S123",
+      "scene_id": "S123",
+      "synthetic_text": "合成测试：客户咨询“拼多多平台自动退款/仅退款争议”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S123",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S124",
+      "scene_id": "S124",
+      "synthetic_text": "合成测试：客户咨询“退款时效”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S124",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S125",
+      "scene_id": "S125",
+      "synthetic_text": "合成测试：客户咨询“退款到账延迟/迟迟未到账”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S125",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S126",
+      "scene_id": "S126",
+      "synthetic_text": "合成测试：客户咨询“退款金额争议/少退”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S126",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S127",
+      "scene_id": "S127",
+      "synthetic_text": "合成测试：客户咨询“退款后客户反悔要求恢复订单/取消退款”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S127",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S128",
+      "scene_id": "S128",
+      "synthetic_text": "合成测试：客户咨询“退货质检不符”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S128",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S129",
+      "scene_id": "S129",
+      "synthetic_text": "合成测试：客户咨询“退货时间不符”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S129",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S130",
+      "scene_id": "S130",
+      "synthetic_text": "合成测试：客户咨询“退货超期”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S130",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S131",
+      "scene_id": "S131",
+      "synthetic_text": "合成测试：客户咨询“退回商品不全”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S131",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S132",
+      "scene_id": "S132",
+      "synthetic_text": "合成测试：客户咨询“退回非本店商品”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S132",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S133",
+      "scene_id": "S133",
+      "synthetic_text": "合成测试：客户咨询“顾客寄回产品缺失/破损/赠品缺失（退货验收争议）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S133",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S134",
+      "scene_id": "S134",
+      "synthetic_text": "合成测试：客户咨询“退货物流拒收液体/特殊商品”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S134",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S135",
+      "scene_id": "S135",
+      "synthetic_text": "合成测试：客户咨询“退货催入库/催退款（仓库签收后未及时处理退款）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S135",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S136",
+      "scene_id": "S136",
+      "synthetic_text": "合成测试：客户咨询“签收超过24小时仓库未拆包/质检延迟”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S136",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S137",
+      "scene_id": "S137",
+      "synthetic_text": "合成测试：客户咨询“换货处理”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S137",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S138",
+      "scene_id": "S138",
+      "synthetic_text": "合成测试：客户咨询“换货后长时间未发出”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S138",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S139",
+      "scene_id": "S139",
+      "synthetic_text": "合成测试：客户咨询“客户要求换货但商品已下架/无库存”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S139",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S140",
+      "scene_id": "S140",
+      "synthetic_text": "合成测试：客户咨询“运险费/运费承担”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S140",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S141",
+      "scene_id": "S141",
+      "synthetic_text": "合成测试：客户咨询“补偿金额/小额打款”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S141",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S142",
+      "scene_id": "S142",
+      "synthetic_text": "合成测试：客户咨询“赔付金额协商（客户嫌少/要求更高赔付）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S142",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S143",
+      "scene_id": "S143",
+      "synthetic_text": "合成测试：客户咨询“催线下打款”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S143",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S144",
+      "scene_id": "S144",
+      "synthetic_text": "合成测试：客户咨询“订单取消（未出库/已出库）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S144",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S145",
+      "scene_id": "S145",
+      "synthetic_text": "合成测试：客户咨询“多订单同包裹”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S145",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S146",
+      "scene_id": "S146",
+      "synthetic_text": "合成测试：客户咨询“代客申请退款/换货”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S146",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S147",
+      "scene_id": "S147",
+      "synthetic_text": "合成测试：客户咨询“预售/等待时间过长（对预售时效不满意）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S147",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S148",
+      "scene_id": "S148",
+      "synthetic_text": "合成测试：客户咨询“好评返现拒绝话术（拒绝好评返现/索要返现）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S148",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S149",
+      "scene_id": "S149",
+      "synthetic_text": "合成测试：客户咨询“发票问题”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S149",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S150",
+      "scene_id": "S150",
+      "synthetic_text": "合成测试：客户咨询“电子发票一直未收到/开票失败”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S150",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S151",
+      "scene_id": "S151",
+      "synthetic_text": "合成测试：客户咨询“企业发票抬头/税号错误需重开”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S151",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S152",
+      "scene_id": "S152",
+      "synthetic_text": "合成测试：客户咨询“购物金开票/限购解除”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S152",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S153",
+      "scene_id": "S153",
+      "synthetic_text": "合成测试：客户咨询“专票信息索要话术（索要增值税专用发票开票信息）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S153",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S154",
+      "scene_id": "S154",
+      "synthetic_text": "合成测试：客户咨询“积分/会员问题”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S154",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S155",
+      "scene_id": "S155",
+      "synthetic_text": "合成测试：客户咨询“会员等级降级/权益变更不满”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S155",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S156",
+      "scene_id": "S156",
+      "synthetic_text": "合成测试：客户咨询“会员积分过期/清零不满”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S156",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S157",
+      "scene_id": "S157",
+      "synthetic_text": "合成测试：客户咨询“客服态度/响应慢投诉”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S157",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S158",
+      "scene_id": "S158",
+      "synthetic_text": "合成测试：客户咨询“客服回复慢/机械回复/态度差（服务体验不满）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S158",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S159",
+      "scene_id": "S159",
+      "synthetic_text": "合成测试：客户咨询“客服排队等待时间过长/转人工困难”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S159",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S160",
+      "scene_id": "S160",
+      "synthetic_text": "合成测试：客户咨询“客服转接多次/踢皮球/无法解决”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S160",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S161",
+      "scene_id": "S161",
+      "synthetic_text": "合成测试：客户咨询“超出客服权限”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S161",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S162",
+      "scene_id": "S162",
+      "synthetic_text": "合成测试：客户咨询“升级处理”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S162",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S163",
+      "scene_id": "S163",
+      "synthetic_text": "合成测试：客户咨询“售后处理时效慢/客户催处理进度”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S163",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S164",
+      "scene_id": "S164",
+      "synthetic_text": "合成测试：客户咨询“客户无答复过渡话术（核对问题/方案后客户未回复）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S164",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S165",
+      "scene_id": "S165",
+      "synthetic_text": "合成测试：客户咨询“页面标注下单价格和实际支付价格不一致”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S165",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S166",
+      "scene_id": "S166",
+      "synthetic_text": "合成测试：客户咨询“投诉威胁升级处理”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S166",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S167",
+      "scene_id": "S167",
+      "synthetic_text": "合成测试：客户咨询“投诉虚假宣传”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S167",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S168",
+      "scene_id": "S168",
+      "synthetic_text": "合成测试：客户咨询“315投诉安抚”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S168",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S169",
+      "scene_id": "S169",
+      "synthetic_text": "合成测试：客户咨询“平台介入/小二介入处理”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S169",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S170",
+      "scene_id": "S170",
+      "synthetic_text": "合成测试：客户咨询“平台强行赔付/平台判责赔付（平台直接扣款）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S170",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S171",
+      "scene_id": "S171",
+      "synthetic_text": "合成测试：客户咨询“客户恶意差评/恶意投诉/要挟赔偿”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S171",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S172",
+      "scene_id": "S172",
+      "synthetic_text": "合成测试：客户咨询“客户要求加急/特殊处理（优先发货/优先退款）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S172",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S173",
+      "scene_id": "S173",
+      "synthetic_text": "合成测试：客户咨询“仓库驳单/驳回审单（订单修改/取消被驳回）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S173",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S174",
+      "scene_id": "S174",
+      "synthetic_text": "合成测试：客户咨询“仓库缺货/库存不足延迟发货”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S174",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S175",
+      "scene_id": "S175",
+      "synthetic_text": "合成测试：客户咨询“仓库停发/物流禁发区域（无法发货）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S175",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S176",
+      "scene_id": "S176",
+      "synthetic_text": "合成测试：客户咨询“仓库多发/多发商品要求客户退回”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S176",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S177",
+      "scene_id": "S177",
+      "synthetic_text": "合成测试：客户咨询“仓库发货未按备注要求（如送礼/特殊包装）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S177",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S178",
+      "scene_id": "S178",
+      "synthetic_text": "合成测试：客户咨询“强行发货（吉客云已推单发货）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S178",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S179",
+      "scene_id": "S179",
+      "synthetic_text": "合成测试：客户咨询“预售/缺货-补偿（平台规则）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S179",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S180",
+      "scene_id": "S180",
+      "synthetic_text": "合成测试：客户咨询“发货-虚假发货/延迟赔付（平台规则）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S180",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S181",
+      "scene_id": "S181",
+      "synthetic_text": "合成测试：客户咨询“产品咨询FAQ”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S181",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S182",
+      "scene_id": "S182",
+      "synthetic_text": "合成测试：客户咨询“产品成分/参数深度咨询”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S182",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S183",
+      "scene_id": "S183",
+      "synthetic_text": "合成测试：客户咨询“商品参数查询/产品信息咨询（无客户需要的参数）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S183",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S184",
+      "scene_id": "S184",
+      "synthetic_text": "合成测试：客户咨询“产品冲泡/饮用方法咨询”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S184",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S185",
+      "scene_id": "S185",
+      "synthetic_text": "合成测试：客户咨询“产品储存/保质期查询”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S185",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S186",
+      "scene_id": "S186",
+      "synthetic_text": "合成测试：客户咨询“品牌代言/大使/明星咨询”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S186",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S187",
+      "scene_id": "S187",
+      "synthetic_text": "合成测试：客户咨询“食品添加剂/配料质疑”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S187",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S188",
+      "scene_id": "S188",
+      "synthetic_text": "合成测试：客户咨询“营养成分表质疑”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S188",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S189",
+      "scene_id": "S189",
+      "synthetic_text": "合成测试：客户咨询“清真/素食等特殊标识”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S189",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S190",
+      "scene_id": "S190",
+      "synthetic_text": "合成测试：客户咨询“规格/容量不符预期（页面标注与实际不符）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S190",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S191",
+      "scene_id": "S191",
+      "synthetic_text": "合成测试：客户咨询“产地/图文信息不一致（页面描述与实际不符）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S191",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S192",
+      "scene_id": "S192",
+      "synthetic_text": "合成测试：客户咨询“页面信息错误/标注不符”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S192",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S193",
+      "scene_id": "S193",
+      "synthetic_text": "合成测试：客户咨询“包装标签瑕疵/防伪码起翘”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S193",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S194",
+      "scene_id": "S194",
+      "synthetic_text": "合成测试：客户咨询“产品包装脏污/外观不洁”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S194",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S195",
+      "scene_id": "S195",
+      "synthetic_text": "合成测试：客户咨询“冷藏/冷冻食品变质”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S195",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S196",
+      "scene_id": "S196",
+      "synthetic_text": "合成测试：客户咨询“零食/干货受潮变软”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S196",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S197",
+      "scene_id": "S197",
+      "synthetic_text": "合成测试：客户咨询“拼多多活动规则/百亿补贴问题”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S197",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S198",
+      "scene_id": "S198",
+      "synthetic_text": "合成测试：客户咨询“抖音渠道售后/抖音小店订单问题”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S198",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S199",
+      "scene_id": "S199",
+      "synthetic_text": "合成测试：客户咨询“微信小店/小程序订单售后处理”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S199",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S200",
+      "scene_id": "S200",
+      "synthetic_text": "合成测试：客户咨询“京东POP店铺售后/京东自营与POP差异”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S200",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S201",
+      "scene_id": "S201",
+      "synthetic_text": "合成测试：客户咨询“报关单及检疫文件提供（进口商品）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S201",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S202",
+      "scene_id": "S202",
+      "synthetic_text": "合成测试：客户咨询“国产饮品检测报告提供（品质/安全质疑）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S202",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S203",
+      "scene_id": "S203",
+      "synthetic_text": "合成测试：客户咨询“客户要求提供营业执照/食品经营许可证”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S203",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S204",
+      "scene_id": "S204",
+      "synthetic_text": "合成测试：客户咨询“入会礼咨询/会员首购运费问题（入会购买商品存在运费）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S204",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S205",
+      "scene_id": "S205",
+      "synthetic_text": "合成测试：客户咨询“产品配方质疑/配方变更/配方成分安全质疑”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S205",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S206",
+      "scene_id": "S206",
+      "synthetic_text": "合成测试：客户咨询“打开瓶盖导致锡纸封口撕裂/破损（开封时锡纸封口损坏）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S206",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S207",
+      "scene_id": "S207",
+      "synthetic_text": "合成测试：客户咨询“直播间未承诺赠品型号/客户反馈直播承诺赠品不符（安抚为主）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S207",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S208",
+      "scene_id": "S208",
+      "synthetic_text": "合成测试：客户咨询“摩可纳咖啡冲泡不开/结块（正常冲泡产生结块，摩可纳定制）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S208",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S209",
+      "scene_id": "S209",
+      "synthetic_text": "合成测试：客户咨询“摩可纳咖啡冲泡后有沉淀杂质/未化开颗粒（摩可纳定制）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S209",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S210",
+      "scene_id": "S210",
+      "synthetic_text": "合成测试：客户咨询“商品未拆封发霉/变质（客户要求食安法赔付，威胁投诉）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S210",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S211",
+      "scene_id": "S211",
+      "synthetic_text": "合成测试：客户咨询“碳酸饮料气不足/跑气（气泡不绵密，口感平淡，通用版）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S211",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S212",
+      "scene_id": "S212",
+      "synthetic_text": "合成测试：客户咨询“积分兑换产品延迟发货/积分商城发货问题”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S212",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S213",
+      "scene_id": "S213",
+      "synthetic_text": "合成测试：客户咨询“扫码领红包/领现金失败（账户限额/领取异常）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S213",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S214",
+      "scene_id": "S214",
+      "synthetic_text": "合成测试：客户咨询“优惠券无法使用/优惠券失效（领券后无法使用）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S214",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S215",
+      "scene_id": "S215",
+      "synthetic_text": "合成测试：客户咨询“活动奖品/活动第一名奖品未发出（中奖/获奖后未收到奖品）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S215",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S216",
+      "scene_id": "S216",
+      "synthetic_text": "合成测试：客户咨询“新老包装交替/产品包装版本更新（包装与页面展示不一致）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S216",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S217",
+      "scene_id": "S217",
+      "synthetic_text": "合成测试：客户咨询“系统错误/订单异常/重复下单（支付异常/重复扣款）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S217",
+      "expected_route": "human_triage",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    },
+    {
+      "case_id": "TC-S218",
+      "scene_id": "S218",
+      "synthetic_text": "合成测试：客户咨询“打泡器无法充电/使用次数少后无法使用（电动打泡器/奶泡器故障）”，请判断下一步。",
+      "confirmed_facts": [],
+      "expected_scene_id": "S218",
+      "expected_route": "needs_evidence",
+      "purpose": "验证218场景登记、精确标题识别及首轮安全分流；不代表自然语言泛化准确率"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+﻿.env
+.env.*
+!.env.example
+node_modules/
+.venv/
+__pycache__/
+.pytest_cache/
+build/
+state/
+output/
+deliverables/demo_reports.json
+.DS_Store
+Thumbs.db

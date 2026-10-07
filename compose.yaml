@@ -1,0 +1,54 @@
+services:
+  app:
+    image: ${CS_APP_IMAGE:-ecommerce-customer-service-agent:latest}
+    build:
+      context: .
+    restart: unless-stopped
+    environment:
+      CS_DEPLOYMENT_MODE: ${CS_DEPLOYMENT_MODE:-production}
+      CS_DATABASE_URL: postgresql+psycopg://customer_service:${POSTGRES_PASSWORD}@db:5432/customer_service
+      CS_COOKIE_SECURE: ${CS_COOKIE_SECURE:-true}
+      CS_DEFAULT_TENANT_ID: ${CS_DEFAULT_TENANT_ID:?请设置租户标识}
+      CS_AUTH_ACCOUNTS_FILE: /run/secrets/cs_auth_accounts
+    secrets:
+      - cs_auth_accounts
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${CS_APP_PORT:-8878}:8878"
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; assert urlopen('http://127.0.0.1:8878/readyz', timeout=3).status == 200"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+
+  db:
+    image: postgres:16-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: customer_service
+      POSTGRES_USER: customer_service
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?请通过部署环境设置数据库口令}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U customer_service -d customer_service"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    security_opt:
+      - no-new-privileges:true
+
+secrets:
+  cs_auth_accounts:
+    file: ${CS_AUTH_ACCOUNTS_FILE:?请设置账号密钥文件路径}
+
+volumes:
+  postgres_data:

@@ -1,0 +1,39 @@
+﻿== benchmark cases 路由分布 ==
+Counter({'needs_evidence': 159, 'human_triage': 59})
+
+== benchmark cases 场景域分布(取前10) ==
+Counter({'退换退款与资金': 35, '品质与食品安全': 33, '订单与物流': 31, '活动赠品与价格': 26, '商品知识与渠道专项': 19, '发票会员与服务': 18, '投诉与仓库系统协作': 17, '包装破损与实物异常': 15, '口感与产品预期': 15, '错漏发与配货': 9})
+
+== scenarios 风险级别分布 ==
+Counter({'conditional': 159, 'high': 59})
+
+== scenarios 域分布 ==
+Counter({'退换退款与资金': 35, '品质与食品安全': 33, '订单与物流': 31, '活动赠品与价格': 26, '商品知识与渠道专项': 19, '发票会员与服务': 18, '投诉与仓库系统协作': 17, '包装破损与实物异常': 15, '口感与产品预期': 15, '错漏发与配货': 9})
+
+== 样例文本(3条) ==
+- 合成测试：客户咨询“发货前修改信息”，请判断下一步。
+- 合成测试：客户咨询“催物流/催发货”，请判断下一步。
+- 合成测试：客户咨询“发货时效/长时间未发货”，请判断下一步。
+
+== 样例场景定义(1条) ==
+{
+ "id": "S001",
+ "name": "发货前修改信息",
+ "domain": "订单与物流",
+ "source_locator": "售后问题汇总!C2:E10",
+ "source_fact_locator": "订单引用（演示使用合成ID）：E2；应发、实收或受影响数量：E2",
+ "required_facts": [
+  "order_ref",
+  "logistics_status",
+  "customer_request"
+ ],
+ "required_fact_labels": [
+  "订单引用（仅合成或脱敏）",
+  "物流/签收状态",
+  "客户当前诉求"
+ ],
+ "risk_level": "high",
+ "owner_suggestion": "仓储物流；改址由主管核验",
+ "priority": "P2",
+ "review_status": "business_review_required"
+}

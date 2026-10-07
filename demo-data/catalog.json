@@ -1,0 +1,12 @@
+{
+  "source": "自主编写的合成商品表，仅用于开发验证",
+  "products": [
+    {"sku": "SKU-A", "name": "原味燕麦", "grams": 500, "price": "20.00", "ingredients": "燕麦", "taste": "原味", "shelf_life_months": 12, "storage": "阴凉干燥处保存", "batch_date": null},
+    {"sku": "SKU-B", "name": "可可燕麦", "grams": 400, "price": "24.00", "ingredients": "燕麦、可可粉、白砂糖", "taste": "甜口", "shelf_life_months": 12, "storage": "阴凉干燥处保存", "batch_date": null}
+  ],
+  "rules": [
+    {"id": "R-PRICE", "text": "仅按已确认展示价比较，优惠条件不全时不得推断到手价。"},
+    {"id": "R-BATCH", "text": "SKU保质期不代表当前发货批次；没有批次信息必须追问或人工核实。"},
+    {"id": "R-RISK", "text": "食品品质投诉、退款赔付、医疗功效及敏感信息修改必须转人工，不作安全或金额承诺。"}
+  ]
+}

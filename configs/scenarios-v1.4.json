@@ -1,0 +1,4799 @@
+{
+  "meta": {
+    "version": "1.4-p0-draft",
+    "source": "售后场景流程最终版.xlsx",
+    "source_sha256": "8842d1acef3d5c25690e8e42385f963b1891db1ad46e3f72675b349cb1950022",
+    "scenario_count": 218,
+    "review_status": "business_review_required",
+    "safe_scope": "仅保留场景名、来源坐标和设计元数据；不含员工名、客户原话或完整话术"
+  },
+  "fact_labels": {
+    "order_ref": "订单引用（仅合成或脱敏）",
+    "logistics_status": "物流/签收状态",
+    "product_ref": "商品或SKU引用",
+    "quantity": "应发、实收或受影响数量",
+    "evidence": "证据是否已由获权人员核验",
+    "batch": "批次/生产日期",
+    "opened_status": "开封及保存状态",
+    "customer_request": "客户当前诉求",
+    "business_status": "活动/售后/服务系统状态"
+  },
+  "scenarios": [
+    {
+      "id": "S001",
+      "name": "发货前修改信息",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C2:E10",
+      "source_fact_locator": "订单引用（演示使用合成ID）：E2；应发、实收或受影响数量：E2",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S002",
+      "name": "催物流/催发货",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C11:E19",
+      "source_fact_locator": "签收与实收状态：E11",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S003",
+      "name": "发货时效/长时间未发货",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C20:E28",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E20；订单引用（演示使用合成ID）：E20；下单/购买时间：E20",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S004",
+      "name": "超时发货/超时揽收（仓库责任）",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C29:E37",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E29；订单引用（演示使用合成ID）：E29；下单/购买时间：E29",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S005",
+      "name": "物流无任何走件/已发货无物流信息",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C38:E46",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E38；订单引用（演示使用合成ID）：E38；包裹/物流引用（不得留存未脱敏面单）：E38",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S006",
+      "name": "物流滞留多日/物流信息停滞不更新",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C47:E55",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E47；订单引用（演示使用合成ID）：E47；包裹/物流引用（不得留存未脱敏面单）：E47",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S007",
+      "name": "物流信息中断/停滞多日",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C56:E64",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S008",
+      "name": "物流配送超时/承诺时效未到",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C65:E73",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E65；订单引用（演示使用合成ID）：E65；包裹/物流引用（不得留存未脱敏面单）：E65；下单/购买时间：E65",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S009",
+      "name": "签收未收到",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C74:E82",
+      "source_fact_locator": "签收与实收状态：E74",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S010",
+      "name": "物流信息显示签收但客户未收到",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C83:E91",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E83；订单引用（演示使用合成ID）：E83；包裹/物流引用（不得留存未脱敏面单）：E83；签收与实收状态：E83",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S011",
+      "name": "物流签收地址与收货地址不符/签收异常",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C92:E100",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E92；订单引用（演示使用合成ID）：E92；包裹/物流引用（不得留存未脱敏面单）：E92；签收与实收状态：E92,E95",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S012",
+      "name": "派件错地址/分拣错误",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C101:E109",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S013",
+      "name": "快递员拒绝送货上门/擅自放快递柜",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C110:E118",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E110；订单引用（演示使用合成ID）：E110；包裹/物流引用（不得留存未脱敏面单）：E110；签收与实收状态：E113",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S014",
+      "name": "快递放代收点/快递柜未通知客户",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C119:E127",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E119；订单引用（演示使用合成ID）：E119；包裹/物流引用（不得留存未脱敏面单）：E119",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S015",
+      "name": "快递员服务问题/辱骂客户",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C128:E136",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E128",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S016",
+      "name": "送货上门",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C137:E145",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S017",
+      "name": "改地址（同区）",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C146:E154",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S018",
+      "name": "改地址（跨省/跨区）",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C155:E163",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S019",
+      "name": "已发货拦截（未到派件网点）",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C164:E172",
+      "source_fact_locator": "签收与实收状态：E164；退款申请状态/金额依据：E164",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S020",
+      "name": "已发货拦截（已到派件网点）",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C173:E181",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S021",
+      "name": "拦截先行退/急速退款",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C182:E190",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E182",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S022",
+      "name": "确认丢件",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C191:E199",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S023",
+      "name": "物流破损要求赔偿",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C200:E208",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E200；包裹/物流引用（不得留存未脱敏面单）：E200",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S024",
+      "name": "物流原件返回",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C209:E217",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S025",
+      "name": "退回物流停滞/无记录",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C218:E226",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S026",
+      "name": "等待包裹退回",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C227:E235",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S027",
+      "name": "拒收退回/退回中商品处理（客户拒收后）",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C236:E244",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E236；订单引用（演示使用合成ID）：E236",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S028",
+      "name": "重发后无单号",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C245:E253",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S029",
+      "name": "补发时效/补发后无物流/补发再次异常",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C254:E262",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E254；订单引用（演示使用合成ID）：E254；包裹/物流引用（不得留存未脱敏面单）：E254",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S030",
+      "name": "分包裹发货/拆单发货部分未到",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C263:E271",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E263；订单引用（演示使用合成ID）：E263；应发、实收或受影响数量：E266",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S031",
+      "name": "大促期间/节假日发货延迟/客服响应慢",
+      "domain": "订单与物流",
+      "source_locator": "售后问题汇总!C272:E280",
+      "source_fact_locator": "订单引用（演示使用合成ID）：E272；下单/购买时间：E272",
+      "required_facts": [
+        "order_ref",
+        "logistics_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "物流/签收状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；改址由主管核验",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S032",
+      "name": "外包装破损/轻微变形（不影响使用）",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C281:E289",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E281；包裹/物流引用（不得留存未脱敏面单）：E281；应发、实收或受影响数量：E281",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S033",
+      "name": "运输磨损/外箱受潮（不影响使用）",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C290:E298",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E290；包裹/物流引用（不得留存未脱敏面单）：E290",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S034",
+      "name": "罐体漏液/瓶身破裂/产品泄漏（影响使用）",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C299:E307",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E299；包裹/物流引用（不得留存未脱敏面单）：E299；应发、实收或受影响数量：E299",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S035",
+      "name": "玻璃瓶爆裂/安全隐患（影响使用）",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C308:E316",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E308；包裹/物流引用（不得留存未脱敏面单）：E308；安全/健康信号（不在演示保存健康原件）：E308",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S036",
+      "name": "多件商品部分破损/部分退款处理",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C317:E325",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E317；应发、实收或受影响数量：E317",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S037",
+      "name": "多瓶装/多联包部分破损",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C326:E334",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E326；应发、实收或受影响数量：E326",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S038",
+      "name": "连续两次收到破损/重复购买破损",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C335:E343",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E335；包裹/物流引用（不得留存未脱敏面单）：E335",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S039",
+      "name": "补发后再次破损/二次包装破损（多次破损）",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C344:E352",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E344；包裹/物流引用（不得留存未脱敏面单）：E344；应发、实收或受影响数量：E344",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S040",
+      "name": "破损拒收/破损签收后退回处理",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C353:E361",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E353；包裹/物流引用（不得留存未脱敏面单）：E353；应发、实收或受影响数量：E353；签收与实收状态：E353,E356",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S041",
+      "name": "破损商品处理方式争议（无需退回vs客户要求退回）",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C362:E370",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E362",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S042",
+      "name": "仓内破损（仓库发货前已破损/包装不当导致破损）",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C371:E379",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E371；包裹/物流引用（不得留存未脱敏面单）：E371；应发、实收或受影响数量：E371",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S043",
+      "name": "大包装/整箱购买问题",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C380:E388",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E380；应发、实收或受影响数量：E380",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S044",
+      "name": "产品变质/发霉",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C389:E398",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E389；商品批次与生产日期：E389；是否开封及时间：E389；保存条件：E389；下单/购买时间：E389",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S045",
+      "name": "异物/不明物体/发黑发霉",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C399:E408",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E399；是否开封及时间：E399",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S046",
+      "name": "白色絮状物",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C409:E418",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E409；商品批次与生产日期：E409；是否开封及时间：E409；保存条件：E409；下单/购买时间：E409",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S047",
+      "name": "咖啡粉末状挂壁严重",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C419:E427",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E419",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S048",
+      "name": "咖啡无法打发",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C428:E436",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E428；商品批次与生产日期：E428",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S049",
+      "name": "粉末结块/冲泡不开",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C437:E446",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E437；商品批次与生产日期：E437；是否开封及时间：E437；保存条件：E437",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S050",
+      "name": "封口贴断裂",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C447:E455",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E447；是否开封及时间：E447",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S051",
+      "name": "临期/过期",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C456:E464",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E456；商品批次与生产日期：E456；是否开封及时间：E456；下单/购买时间：E456",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S052",
+      "name": "临期产品未标注/客户不知情",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C465:E473",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E465；商品批次与生产日期：E465",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S053",
+      "name": "产品日期不满（非临期）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C474:E482",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E474；商品批次与生产日期：E474",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S054",
+      "name": "产品颜色/性状异常（与正常产品不同）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C483:E492",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E483；商品批次与生产日期：E483,E487；是否开封及时间：E483",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S055",
+      "name": "摩可纳内部咖啡颜色不同/批次颜色差异（摩可纳定制）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C493:E501",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E493；商品批次与生产日期：E493,E496",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S056",
+      "name": "产品有异味/怪味（非变质但口感异常）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C502:E511",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E502；商品批次与生产日期：E502；是否开封及时间：E502,E506",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S057",
+      "name": "产品开封后操作不当导致变质/客户自认变质",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C512:E520",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E512；是否开封及时间：E512,E515；保存条件：E512,E515",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S058",
+      "name": "开封后变质/发霉（无法判定责任）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C521:E529",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E521；商品批次与生产日期：E521；是否开封及时间：E521,E524；保存条件：E521",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S059",
+      "name": "饮品发酵/有气泡（非碳酸饮料）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C530:E538",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E530；是否开封及时间：E530；保存条件：E530；下单/购买时间：E530",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S060",
+      "name": "食品包装漏气/涨袋",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C539:E547",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E539；商品批次与生产日期：E539；是否开封及时间：E539；下单/购买时间：E539",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S061",
+      "name": "饮料胀包/鼓包",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C548:E556",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E548；商品批次与生产日期：E548；保存条件：E548；下单/购买时间：E548",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S062",
+      "name": "酒水漏气/跑酒/挥发",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C557:E565",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E557；是否开封及时间：E557；下单/购买时间：E557",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S063",
+      "name": "酒水沉淀物/浑浊",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C566:E574",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E566；是否开封及时间：E566；下单/购买时间：E566",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S064",
+      "name": "酒水年份/产地不符",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C575:E583",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E575",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S065",
+      "name": "商品瑕疵/轻微外观问题（不影响使用）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C584:E592",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E584",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S066",
+      "name": "错发过期商品/发过期商品（食品安全法赔付）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C593:E601",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E593；订单引用（演示使用合成ID）：E593；包裹/物流引用（不得留存未脱敏面单）：E593；商品批次与生产日期：E593；是否开封及时间：E593",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S067",
+      "name": "商品品质不可补偿（主观不满/非质量问题不补偿）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C602:E610",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E602",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S068",
+      "name": "饮用后腹泻/肠胃不适（轻微症状）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C611:E619",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E611；商品批次与生产日期：E611；是否开封及时间：E611；安全/健康信号（不在演示保存健康原件）：E611；下单/购买时间：E611",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S069",
+      "name": "腹泻要求赔付（无就医凭证）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C620:E628",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E620；商品批次与生产日期：E620；安全/健康信号（不在演示保存健康原件）：E620；下单/购买时间：E620",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S070",
+      "name": "腹泻要求赔付（有就医凭证）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C629:E637",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E629；商品批次与生产日期：E629；安全/健康信号（不在演示保存健康原件）：E629；受限凭证是否已由获权人员核验：E629；开票需求及受控申请引用：E629",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S071",
+      "name": "过敏/身体不适",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C638:E646",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E638；是否开封及时间：E638；安全/健康信号（不在演示保存健康原件）：E638；受限凭证是否已由获权人员核验：E638,E641；下单/购买时间：E638",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S072",
+      "name": "口感不好/太苦/太甜",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C647:E655",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E647",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S073",
+      "name": "投诉口感差",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C656:E664",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E656；商品批次与生产日期：E656",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S074",
+      "name": "产品批次口感不一致/口感变差",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C665:E673",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E665；商品批次与生产日期：E665,E668",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S075",
+      "name": "产品口感/味道与描述不符",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C674:E682",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E674",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S076",
+      "name": "咖啡酸味过重/太酸无法接受",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C683:E691",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E683",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S077",
+      "name": "提神效果不达预期（咖啡类产品功能质疑）",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C692:E700",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E692；是否开封及时间：E695",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S078",
+      "name": "0糖/低糖/无糖产品口感质疑",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C701:E709",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E701",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S079",
+      "name": "酒水口感不对/瓶差/批次差异",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C710:E718",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E710；商品批次与生产日期：E710,E713",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S080",
+      "name": "口味/产品版本不符（新老包装）",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C719:E727",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E719",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S081",
+      "name": "价格/性价比不值（产品价值感不满）",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C728:E736",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E728；是否开封及时间：E731；活动规则及资格/兑现记录：E731",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S082",
+      "name": "价格投诉买贵了",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C737:E745",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E737；活动规则及资格/兑现记录：E737",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S083",
+      "name": "错发",
+      "domain": "错漏发与配货",
+      "source_locator": "售后问题汇总!C746:E754",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E746；包裹/物流引用（不得留存未脱敏面单）：E746；应发、实收或受影响数量：E746",
+      "required_facts": [
+        "order_ref",
+        "product_ref",
+        "quantity",
+        "logistics_status",
+        "evidence"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "物流/签收状态",
+        "证据是否已由获权人员核验"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；主管",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S084",
+      "name": "错发后客户已使用错发商品（无意愿退回）",
+      "domain": "错漏发与配货",
+      "source_locator": "售后问题汇总!C755:E763",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E755；包裹/物流引用（不得留存未脱敏面单）：E755",
+      "required_facts": [
+        "order_ref",
+        "product_ref",
+        "quantity",
+        "logistics_status",
+        "evidence"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "物流/签收状态",
+        "证据是否已由获权人员核验"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S085",
+      "name": "商品错配（仓库配货错误/发错SKU）",
+      "domain": "错漏发与配货",
+      "source_locator": "售后问题汇总!C764:E772",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E764；包裹/物流引用（不得留存未脱敏面单）：E764；应发、实收或受影响数量：E764",
+      "required_facts": [
+        "order_ref",
+        "product_ref",
+        "quantity",
+        "logistics_status",
+        "evidence"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "物流/签收状态",
+        "证据是否已由获权人员核验"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；主管",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S086",
+      "name": "漏发/少件",
+      "domain": "错漏发与配货",
+      "source_locator": "售后问题汇总!C773:E781",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E773；包裹/物流引用（不得留存未脱敏面单）：E773；应发、实收或受影响数量：E773",
+      "required_facts": [
+        "order_ref",
+        "product_ref",
+        "quantity",
+        "logistics_status",
+        "evidence"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "物流/签收状态",
+        "证据是否已由获权人员核验"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；主管",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S087",
+      "name": "商品漏配（仓库已配货但漏装出库）",
+      "domain": "错漏发与配货",
+      "source_locator": "售后问题汇总!C782:E790",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E782；包裹/物流引用（不得留存未脱敏面单）：E782",
+      "required_facts": [
+        "order_ref",
+        "product_ref",
+        "quantity",
+        "logistics_status",
+        "evidence"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "物流/签收状态",
+        "证据是否已由获权人员核验"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；主管",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S088",
+      "name": "漏发后客户要求全单退款/拒收剩余商品",
+      "domain": "错漏发与配货",
+      "source_locator": "售后问题汇总!C791:E799",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E791；包裹/物流引用（不得留存未脱敏面单）：E791；应发、实收或受影响数量：E791",
+      "required_facts": [
+        "order_ref",
+        "product_ref",
+        "quantity",
+        "logistics_status",
+        "evidence"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "物流/签收状态",
+        "证据是否已由获权人员核验"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "仓储物流；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S089",
+      "name": "空包",
+      "domain": "错漏发与配货",
+      "source_locator": "售后问题汇总!C800:E808",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E800；包裹/物流引用（不得留存未脱敏面单）：E800",
+      "required_facts": [
+        "order_ref",
+        "product_ref",
+        "quantity",
+        "logistics_status",
+        "evidence"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "物流/签收状态",
+        "证据是否已由获权人员核验"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；主管",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S090",
+      "name": "无责-错漏发（仓库核实无错漏发）",
+      "domain": "错漏发与配货",
+      "source_locator": "售后问题汇总!C809:E817",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E809；包裹/物流引用（不得留存未脱敏面单）：E809",
+      "required_facts": [
+        "order_ref",
+        "product_ref",
+        "quantity",
+        "logistics_status",
+        "evidence"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "物流/签收状态",
+        "证据是否已由获权人员核验"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；主管",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S091",
+      "name": "批量订单/大额订单问题",
+      "domain": "错漏发与配货",
+      "source_locator": "售后问题汇总!C818:E826",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E818；订单引用（演示使用合成ID）：E818",
+      "required_facts": [
+        "order_ref",
+        "product_ref",
+        "quantity",
+        "logistics_status",
+        "evidence"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "物流/签收状态",
+        "证据是否已由获权人员核验"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；主管",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S092",
+      "name": "赠品问题（少发/破损/不一致）",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C827:E835",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E827；活动规则及资格/兑现记录：E827",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S093",
+      "name": "赠品问题协商赔付/赠品价值折算争议",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C836:E844",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E836；活动规则及资格/兑现记录：E836,E839",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S094",
+      "name": "赠品玻璃瓶爆裂/安全隐患（影响使用）",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C845:E853",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E845；包裹/物流引用（不得留存未脱敏面单）：E845；安全/健康信号（不在演示保存健康原件）：E845,E848；活动规则及资格/兑现记录：E845,E848",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S095",
+      "name": "赠品库存不足/补发延迟",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C854:E862",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E854；活动规则及资格/兑现记录：E854",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S096",
+      "name": "赠品数量兑换完成/满赠活动赠品已赠完（限量赠完无法补发）",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C863:E871",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E863；活动规则及资格/兑现记录：E863,E866",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S097",
+      "name": "满赠活动异常",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C872:E880",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E872；活动规则及资格/兑现记录：E872",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S098",
+      "name": "满赠活动门槛误解/未达标要求赠品",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C881:E889",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E881；活动规则及资格/兑现记录：E881,E884",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S099",
+      "name": "满赠活动赠品与主商品到货时间不同步",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C890:E898",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E890；订单引用（演示使用合成ID）：E890；活动规则及资格/兑现记录：E890,E893",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S100",
+      "name": "满赠活动赠品变更/替换未通知客户",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C899:E907",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E899；订单引用（演示使用合成ID）：E899；活动规则及资格/兑现记录：E899,E902",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S101",
+      "name": "满赠活动赠品优惠券/电子券未到账",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C908:E916",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E908；订单引用（演示使用合成ID）：E908；活动规则及资格/兑现记录：E908",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S102",
+      "name": "满赠活动叠加互斥/优惠不叠加",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C917:E925",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E917；活动规则及资格/兑现记录：E917,E920",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S103",
+      "name": "赠品与直播间描述不符",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C926:E934",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E926；活动规则及资格/兑现记录：E926",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S104",
+      "name": "直播间下单未享直播间优惠/主播承诺未兑现",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C935:E943",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E935；订单引用（演示使用合成ID）：E935；活动规则及资格/兑现记录：E935,E938",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S105",
+      "name": "直播间中奖/免单活动",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C944:E952",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E944；订单引用（演示使用合成ID）：E944；活动规则及资格/兑现记录：E944,E947",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S106",
+      "name": "试饮活动/试用品未收到",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C953:E961",
+      "source_fact_locator": "活动规则及资格/兑现记录：E953,E956",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S107",
+      "name": "扫码领红包/领现金失败",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C962:E970",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S108",
+      "name": "抽奖活动/转盘抽奖争议（未中奖/奖品不符）",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C971:E979",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E971；活动规则及资格/兑现记录：E971,E974",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S109",
+      "name": "新人专享价/首单优惠未享受",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C980:E988",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E980；订单引用（演示使用合成ID）：E980；活动规则及资格/兑现记录：E980,E983",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S110",
+      "name": "活动-客户体验补偿（活动结果不满）",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C989:E997",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E989；活动规则及资格/兑现记录：E989,E992",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S111",
+      "name": "差价售后（保价/差价补偿）",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C998:E1006",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E998；活动规则及资格/兑现记录：E998",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S112",
+      "name": "退定金差价（尾款未支付/忘记支付）",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C1007:E1015",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1007；订单引用（演示使用合成ID）：E1007；活动规则及资格/兑现记录：E1007",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S113",
+      "name": "优惠券差价（忘记使用优惠券）",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C1016:E1024",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1016；订单引用（演示使用合成ID）：E1016；活动规则及资格/兑现记录：E1016",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S114",
+      "name": "7天无理由退货",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1025:E1033",
+      "source_fact_locator": "应发、实收或受影响数量：E1028；活动规则及资格/兑现记录：E1025",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S115",
+      "name": "不支持7天无理由",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1034:E1042",
+      "source_fact_locator": "是否开封及时间：E1034",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S116",
+      "name": "已拆封/已使用-不喜欢",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1043:E1051",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1043；是否开封及时间：E1043",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S117",
+      "name": "退货政策不满意（对退货规则有异议）",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1052:E1060",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1052；是否开封及时间：E1052,E1055",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S118",
+      "name": "询问退款原因",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1061:E1069",
+      "source_fact_locator": "退款申请状态/金额依据：E1061",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S119",
+      "name": "修改退款原因",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1070:E1078",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S120",
+      "name": "撤销退款申请",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1079:E1087",
+      "source_fact_locator": "退款申请状态/金额依据：E1079",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S121",
+      "name": "仅退款申请",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1088:E1096",
+      "source_fact_locator": "退款申请状态/金额依据：E1088,E1091",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S122",
+      "name": "拼多多仅退款/平台强制退款客户要求退还商品",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1097:E1105",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1097；订单引用（演示使用合成ID）：E1097；是否开封及时间：E1097,E1100",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S123",
+      "name": "拼多多平台自动退款/仅退款争议",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1106:E1114",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1106；订单引用（演示使用合成ID）：E1106；是否开封及时间：E1109",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S124",
+      "name": "退款时效",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1115:E1123",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S125",
+      "name": "退款到账延迟/迟迟未到账",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1124:E1132",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1124；订单引用（演示使用合成ID）：E1124；退款申请状态/金额依据：E1127",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S126",
+      "name": "退款金额争议/少退",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1133:E1141",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1133；订单引用（演示使用合成ID）：E1133；退款申请状态/金额依据：E1133,E1136；活动规则及资格/兑现记录：E1133,E1136",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S127",
+      "name": "退款后客户反悔要求恢复订单/取消退款",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1142:E1150",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1142；订单引用（演示使用合成ID）：E1142；退款申请状态/金额依据：E1145",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S128",
+      "name": "退货质检不符",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1151:E1159",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S129",
+      "name": "退货时间不符",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1160:E1168",
+      "source_fact_locator": "签收与实收状态：E1160",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S130",
+      "name": "退货超期",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1169:E1178",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1169；签收与实收状态：E1169",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S131",
+      "name": "退回商品不全",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1179:E1187",
+      "source_fact_locator": "活动规则及资格/兑现记录：E1179,E1182",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S132",
+      "name": "退回非本店商品",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1188:E1196",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S133",
+      "name": "顾客寄回产品缺失/破损/赠品缺失（退货验收争议）",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1197:E1205",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1197；包裹/物流引用（不得留存未脱敏面单）：E1197；活动规则及资格/兑现记录：E1197,E1200",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S134",
+      "name": "退货物流拒收液体/特殊商品",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1206:E1214",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1206",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S135",
+      "name": "退货催入库/催退款（仓库签收后未及时处理退款）",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1215:E1223",
+      "source_fact_locator": "订单引用（演示使用合成ID）：E1215；包裹/物流引用（不得留存未脱敏面单）：E1215；签收与实收状态：E1215,E1218",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S136",
+      "name": "签收超过24小时仓库未拆包/质检延迟",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1224:E1232",
+      "source_fact_locator": "订单引用（演示使用合成ID）：E1224；包裹/物流引用（不得留存未脱敏面单）：E1224；签收与实收状态：E1224,E1227",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S137",
+      "name": "换货处理",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1233:E1241",
+      "source_fact_locator": "是否开封及时间：E1233",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S138",
+      "name": "换货后长时间未发出",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1242:E1250",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1242；订单引用（演示使用合成ID）：E1242；签收与实收状态：E1242",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S139",
+      "name": "客户要求换货但商品已下架/无库存",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1251:E1259",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1251；订单引用（演示使用合成ID）：E1251",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S140",
+      "name": "运险费/运费承担",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1260:E1268",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S141",
+      "name": "补偿金额/小额打款",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1269:E1277",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S142",
+      "name": "赔付金额协商（客户嫌少/要求更高赔付）",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1278:E1286",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1278；活动规则及资格/兑现记录：E1281",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S143",
+      "name": "催线下打款",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1287:E1295",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S144",
+      "name": "订单取消（未出库/已出库）",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1296:E1304",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S145",
+      "name": "多订单同包裹",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1305:E1313",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S146",
+      "name": "代客申请退款/换货",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1314:E1322",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S147",
+      "name": "预售/等待时间过长（对预售时效不满意）",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1323:E1331",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1323；订单引用（演示使用合成ID）：E1323",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S148",
+      "name": "好评返现拒绝话术（拒绝好评返现/索要返现）",
+      "domain": "退换退款与资金",
+      "source_locator": "售后问题汇总!C1332:E1340",
+      "source_fact_locator": "活动规则及资格/兑现记录：E1335",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "售后主管；财务；仓储物流",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S149",
+      "name": "发票问题",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1341:E1348",
+      "source_fact_locator": "开票需求及受控申请引用：E1341,E1344",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S150",
+      "name": "电子发票一直未收到/开票失败",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1349:E1357",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1349；订单引用（演示使用合成ID）：E1349；开票需求及受控申请引用：E1349,E1352",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S151",
+      "name": "企业发票抬头/税号错误需重开",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1358:E1366",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1358；订单引用（演示使用合成ID）：E1358；开票需求及受控申请引用：E1358,E1361",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S152",
+      "name": "购物金开票/限购解除",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1367:E1375",
+      "source_fact_locator": "订单引用（演示使用合成ID）：E1367；开票需求及受控申请引用：E1367",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S153",
+      "name": "专票信息索要话术（索要增值税专用发票开票信息）",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1376:E1384",
+      "source_fact_locator": "开票需求及受控申请引用：E1376,E1377",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S154",
+      "name": "积分/会员问题",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1385:E1393",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S155",
+      "name": "会员等级降级/权益变更不满",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1394:E1402",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1394",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S156",
+      "name": "会员积分过期/清零不满",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1403:E1411",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1403；活动规则及资格/兑现记录：E1406",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S157",
+      "name": "客服态度/响应慢投诉",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1412:E1420",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S158",
+      "name": "客服回复慢/机械回复/态度差（服务体验不满）",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1421:E1429",
+      "source_fact_locator": "订单引用（演示使用合成ID）：E1421",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S159",
+      "name": "客服排队等待时间过长/转人工困难",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1430:E1438",
+      "source_fact_locator": "订单引用（演示使用合成ID）：E1430",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S160",
+      "name": "客服转接多次/踢皮球/无法解决",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1439:E1447",
+      "source_fact_locator": "订单引用（演示使用合成ID）：E1439",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S161",
+      "name": "超出客服权限",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1448:E1456",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S162",
+      "name": "升级处理",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1457:E1465",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1457",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S163",
+      "name": "售后处理时效慢/客户催处理进度",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1466:E1474",
+      "source_fact_locator": "订单引用（演示使用合成ID）：E1466；签收与实收状态：E1469",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S164",
+      "name": "客户无答复过渡话术（核对问题/方案后客户未回复）",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1475:E1483",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S165",
+      "name": "页面标注下单价格和实际支付价格不一致",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1484:E1492",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1484；活动规则及资格/兑现记录：E1484,E1487",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S166",
+      "name": "投诉威胁升级处理",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1493:E1501",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S167",
+      "name": "投诉虚假宣传",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1502:E1510",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S168",
+      "name": "315投诉安抚",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1511:E1519",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S169",
+      "name": "平台介入/小二介入处理",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1520:E1528",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S170",
+      "name": "平台强行赔付/平台判责赔付（平台直接扣款）",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1529:E1537",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1529；订单引用（演示使用合成ID）：E1529",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S171",
+      "name": "客户恶意差评/恶意投诉/要挟赔偿",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1538:E1546",
+      "source_fact_locator": "订单引用（演示使用合成ID）：E1538",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S172",
+      "name": "客户要求加急/特殊处理（优先发货/优先退款）",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1547:E1555",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1547；订单引用（演示使用合成ID）：E1547",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S173",
+      "name": "仓库驳单/驳回审单（订单修改/取消被驳回）",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1556:E1564",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1556；订单引用（演示使用合成ID）：E1556；应发、实收或受影响数量：E1559",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S174",
+      "name": "仓库缺货/库存不足延迟发货",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1565:E1573",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1565；订单引用（演示使用合成ID）：E1565；下单/购买时间：E1565",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S175",
+      "name": "仓库停发/物流禁发区域（无法发货）",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1574:E1582",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1574；订单引用（演示使用合成ID）：E1574",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S176",
+      "name": "仓库多发/多发商品要求客户退回",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1583:E1591",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1583；包裹/物流引用（不得留存未脱敏面单）：E1583；应发、实收或受影响数量：E1583；是否开封及时间：E1583,E1586",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S177",
+      "name": "仓库发货未按备注要求（如送礼/特殊包装）",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1592:E1600",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1592；订单引用（演示使用合成ID）：E1592",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S178",
+      "name": "强行发货（吉客云已推单发货）",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1601:E1609",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1601；订单引用（演示使用合成ID）：E1601；签收与实收状态：E1601,E1604；退款申请状态/金额依据：E1601",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P1",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S179",
+      "name": "预售/缺货-补偿（平台规则）",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1610:E1618",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1610；订单引用（演示使用合成ID）：E1610；下单/购买时间：E1610",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S180",
+      "name": "发货-虚假发货/延迟赔付（平台规则）",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1619:E1627",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1619；订单引用（演示使用合成ID）：E1619；下单/购买时间：E1619",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P2",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S181",
+      "name": "产品咨询FAQ",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1628:E1636",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S182",
+      "name": "产品成分/参数深度咨询",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1637:E1645",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S183",
+      "name": "商品参数查询/产品信息咨询（无客户需要的参数）",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1646:E1654",
+      "source_fact_locator": "商品批次与生产日期：E1649",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S184",
+      "name": "产品冲泡/饮用方法咨询",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1655:E1663",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S185",
+      "name": "产品储存/保质期查询",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1664:E1672",
+      "source_fact_locator": "商品批次与生产日期：E1664；是否开封及时间：E1667；保存条件：E1664,E1667",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S186",
+      "name": "品牌代言/大使/明星咨询",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1673:E1681",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S187",
+      "name": "食品添加剂/配料质疑",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1682:E1690",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S188",
+      "name": "营养成分表质疑",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1691:E1699",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S189",
+      "name": "清真/素食等特殊标识",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1700:E1708",
+      "source_fact_locator": "需场景评审",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S190",
+      "name": "规格/容量不符预期（页面标注与实际不符）",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C1709:E1717",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1709",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S191",
+      "name": "产地/图文信息不一致（页面描述与实际不符）",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C1718:E1726",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1718；商品批次与生产日期：E1721；是否开封及时间：E1721",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S192",
+      "name": "页面信息错误/标注不符",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1727:E1735",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1727",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S193",
+      "name": "包装标签瑕疵/防伪码起翘",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C1736:E1744",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1736；是否开封及时间：E1736",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S194",
+      "name": "产品包装脏污/外观不洁",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C1745:E1753",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1745",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S195",
+      "name": "冷藏/冷冻食品变质",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C1754:E1763",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1754；包裹/物流引用（不得留存未脱敏面单）：E1754；保存条件：E1754；签收与实收状态：E1754",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S196",
+      "name": "零食/干货受潮变软",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C1764:E1772",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1764；是否开封及时间：E1764；保存条件：E1764",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S197",
+      "name": "拼多多活动规则/百亿补贴问题",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1773:E1781",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1773；订单引用（演示使用合成ID）：E1773；活动规则及资格/兑现记录：E1773,E1776",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S198",
+      "name": "抖音渠道售后/抖音小店订单问题",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1782:E1790",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1782；订单引用（演示使用合成ID）：E1782",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S199",
+      "name": "微信小店/小程序订单售后处理",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1791:E1799",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1791；订单引用（演示使用合成ID）：E1791",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S200",
+      "name": "京东POP店铺售后/京东自营与POP差异",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1800:E1808",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1800；订单引用（演示使用合成ID）：E1800",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S201",
+      "name": "报关单及检疫文件提供（进口商品）",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1809:E1817",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1809；下单/购买时间：E1812；开票需求及受控申请引用：E1812",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S202",
+      "name": "国产饮品检测报告提供（品质/安全质疑）",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1818:E1826",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1818；应发、实收或受影响数量：E1821；商品批次与生产日期：E1818；开票需求及受控申请引用：E1821",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S203",
+      "name": "客户要求提供营业执照/食品经营许可证",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1827:E1835",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1827",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S204",
+      "name": "入会礼咨询/会员首购运费问题（入会购买商品存在运费）",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1836:E1844",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1836；活动规则及资格/兑现记录：E1839",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S205",
+      "name": "产品配方质疑/配方变更/配方成分安全质疑",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C1845:E1853",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1845；商品批次与生产日期：E1845；是否开封及时间：E1848",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S206",
+      "name": "打开瓶盖导致锡纸封口撕裂/破损（开封时锡纸封口损坏）",
+      "domain": "包装破损与实物异常",
+      "source_locator": "售后问题汇总!C1854:E1862",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1854；商品批次与生产日期：E1854；是否开封及时间：E1854,E1857",
+      "required_facts": [
+        "product_ref",
+        "quantity",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "应发、实收或受影响数量",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "仓储物流；涉及安全交质量负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S207",
+      "name": "直播间未承诺赠品型号/客户反馈直播承诺赠品不符（安抚为主）",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C1863:E1871",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1863；活动规则及资格/兑现记录：E1863,E1866",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S208",
+      "name": "摩可纳咖啡冲泡不开/结块（正常冲泡产生结块，摩可纳定制）",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C1872:E1880",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1872,E1875；商品批次与生产日期：E1872；是否开封及时间：E1872,E1875；保存条件：E1872,E1875",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S209",
+      "name": "摩可纳咖啡冲泡后有沉淀杂质/未化开颗粒（摩可纳定制）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C1881:E1889",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1881,E1884；商品批次与生产日期：E1881,E1884",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S210",
+      "name": "商品未拆封发霉/变质（客户要求食安法赔付，威胁投诉）",
+      "domain": "品质与食品安全",
+      "source_locator": "售后问题汇总!C1890:E1898",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1890；商品批次与生产日期：E1890；是否开封及时间：E1890；保存条件：E1890；下单/购买时间：E1890",
+      "required_facts": [
+        "product_ref",
+        "batch",
+        "opened_status",
+        "evidence",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "批次/生产日期",
+        "开封及保存状态",
+        "证据是否已由获权人员核验",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "质量负责人（新增职责）；主管",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S211",
+      "name": "碳酸饮料气不足/跑气（气泡不绵密，口感平淡，通用版）",
+      "domain": "口感与产品预期",
+      "source_locator": "售后问题汇总!C1899:E1907",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1899；应发、实收或受影响数量：E1899,E1902；商品批次与生产日期：E1899；是否开封及时间：E1902；保存条件：E1899",
+      "required_facts": [
+        "product_ref",
+        "opened_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "开封及保存状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；运营；质量负责人按风险介入",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S212",
+      "name": "积分兑换产品延迟发货/积分商城发货问题",
+      "domain": "发票会员与服务",
+      "source_locator": "售后问题汇总!C1908:E1916",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1908；订单引用（演示使用合成ID）：E1908",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服主管；财务或会员运营",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S213",
+      "name": "扫码领红包/领现金失败（账户限额/领取异常）",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C1917:E1925",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1917；活动规则及资格/兑现记录：E1917,E1920",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S214",
+      "name": "优惠券无法使用/优惠券失效（领券后无法使用）",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C1926:E1934",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1926；活动规则及资格/兑现记录：E1926,E1929",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S215",
+      "name": "活动奖品/活动第一名奖品未发出（中奖/获奖后未收到奖品）",
+      "domain": "活动赠品与价格",
+      "source_locator": "售后问题汇总!C1935:E1943",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1935；活动规则及资格/兑现记录：E1935,E1938",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "运营/活动负责人；财务按方案介入",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S216",
+      "name": "新老包装交替/产品包装版本更新（包装与页面展示不一致）",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1944:E1952",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1944",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S217",
+      "name": "系统错误/订单异常/重复下单（支付异常/重复扣款）",
+      "domain": "投诉与仓库系统协作",
+      "source_locator": "售后问题汇总!C1953:E1961",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1953；订单引用（演示使用合成ID）：E1953",
+      "required_facts": [
+        "order_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "订单引用（仅合成或脱敏）",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "high",
+      "owner_suggestion": "主管分诊；运营/仓储/供应链/财务按事项接单",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    },
+    {
+      "id": "S218",
+      "name": "打泡器无法充电/使用次数少后无法使用（电动打泡器/奶泡器故障）",
+      "domain": "商品知识与渠道专项",
+      "source_locator": "售后问题汇总!C1962:E1970",
+      "source_fact_locator": "实物/场景证据引用（原始文件留在获权系统）：E1962",
+      "required_facts": [
+        "product_ref",
+        "business_status",
+        "customer_request"
+      ],
+      "required_fact_labels": [
+        "商品或SKU引用",
+        "活动/售后/服务系统状态",
+        "客户当前诉求"
+      ],
+      "risk_level": "conditional",
+      "owner_suggestion": "客服；品牌/运营；专项负责人",
+      "priority": "P3",
+      "review_status": "business_review_required"
+    }
+  ]
+}

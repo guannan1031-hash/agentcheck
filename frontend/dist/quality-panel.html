@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent 输出质检工作台</title>
+<style>
+  :root {
+    --bg: #0f1419; --panel: #1a2230; --panel2: #141b26; --line: #2a3444;
+    --text: #e8edf3; --muted: #8b98a9; --accent: #4f8cff; --accent2: #34d399;
+    --fail: #f87171; --warn: #fbbf24; --pass: #34d399; --skip: #64748b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font: 14px/1.6 "Microsoft YaHei", system-ui, sans-serif; padding: 20px; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+  h1 { font-size: 20px; letter-spacing: .5px; }
+  .badge { font-size: 12px; padding: 3px 10px; border-radius: 20px; border: 1px solid var(--line); color: var(--muted); }
+  .badge.ok { color: var(--pass); border-color: rgba(52,211,153,.4); }
+  .badge.warn { color: var(--warn); border-color: rgba(251,191,36,.4); }
+  .grid { display: grid; grid-template-columns: 420px 1fr; gap: 16px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .card h2 { font-size: 14px; color: var(--muted); font-weight: 600; margin-bottom: 12px; letter-spacing: 1px; }
+  label { display: block; font-size: 12px; color: var(--muted); margin: 10px 0 4px; }
+  input, textarea, select {
+    width: 100%; background: var(--panel2); border: 1px solid var(--line); color: var(--text);
+    border-radius: 8px; padding: 8px 10px; font: inherit; outline: none;
+  }
+  input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 64px; }
+  .row { display: flex; gap: 8px; }
+  .row > * { flex: 1; }
+  .presets { display: flex; gap: 8px; margin: 12px 0 4px; flex-wrap: wrap; }
+  .presets button {
+    background: var(--panel2); border: 1px solid var(--line); color: var(--text);
+    border-radius: 8px; padding: 6px 12px; font-size: 12px; cursor: pointer;
+  }
+  .presets button:hover { border-color: var(--accent); }
+  .actions { display: flex; gap: 10px; margin-top: 14px; }
+  .actions button {
+    flex: 1; padding: 10px 0; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;
+  }
+  #run { background: var(--accent); color: #fff; }
+  #run:disabled, #batch:disabled { opacity: .5; cursor: not-allowed; }
+  #batch { background: var(--panel2); color: var(--text); border: 1px solid var(--line); }
+  .metric { font-size: 12px; color: var(--muted); margin-top: 10px; }
+  .metric b { color: var(--text); }
+  .overall { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; padding: 12px; border-radius: 10px; }
+  .overall.fail { background: rgba(248,113,113,.12); border: 1px solid rgba(248,113,113,.4); }
+  .overall.review { background: rgba(251,191,36,.1); border: 1px solid rgba(251,191,36,.4); }
+  .overall.pass { background: rgba(52,211,153,.1); border: 1px solid rgba(52,211,153,.4); }
+  .overall .tag { font-size: 18px; font-weight: 700; }
+  .overall.fail .tag { color: var(--fail); } .overall.review .tag { color: var(--warn); } .overall.pass .tag { color: var(--pass); }
+  .overall .summary { flex: 1; font-size: 13px; color: var(--muted); }
+  .dims { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; margin-bottom: 14px; }
+  .dim { background: var(--panel2); border-radius: 8px; padding: 10px; }
+  .dim .name { font-size: 12px; color: var(--muted); }
+  .dim .score { font-size: 16px; font-weight: 700; margin-top: 2px; }
+  .bar { height: 6px; background: #0c1118; border-radius: 3px; margin-top: 6px; overflow: hidden; }
+  .bar > i { display: block; height: 100%; border-radius: 3px; background: var(--accent2); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; color: var(--muted); font-weight: 500; font-size: 12px; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+  td { padding: 8px; border-bottom: 1px solid rgba(42,52,68,.5); vertical-align: top; }
+  .verdict { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+  .verdict.pass { background: rgba(52,211,153,.15); color: var(--pass); }
+  .verdict.fail { background: rgba(248,113,113,.15); color: var(--fail); }
+  .verdict.warn { background: rgba(251,191,36,.15); color: var(--warn); }
+  .verdict.skip { background: rgba(100,116,139,.15); color: var(--skip); }
+  .sev.critical { color: var(--fail); } .sev.warning { color: var(--warn); }
+  .conf { color: var(--muted); font-size: 12px; }
+  .judge { color: var(--accent2); font-size: 11px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+  .stat { background: var(--panel2); border-radius: 8px; padding: 12px; text-align: center; }
+  .stat .n { font-size: 22px; font-weight: 700; }
+  .stat .l { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .muted { color: var(--muted); }
+  .hint { font-size: 12px; color: var(--muted); margin-top: 10px; }
+  .loading { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Agent 输出质检工作台</h1>
+    <span class="badge" id="engineBadge">引擎状态…</span>
+    <span class="badge" id="judgeBadge">裁判后端…</span>
+    <span class="badge" id="pkgBadge">规则包：-</span>
+  </header>
+
+  <div class="grid">
+    <div class="card">
+      <h2>待检样本</h2>
+      <label>客户输入</label>
+      <textarea id="inputText" rows="2">我要投诉，食品发霉了，要求退款赔偿！</textarea>
+      <label>Agent 输出（待质检）</label>
+      <textarea id="agentOutput" rows="3">亲，您放心，我们保证全额退款给您，联系电话 13812345678。</textarea>
+      <div class="row">
+        <div>
+          <label>Agent 路由</label>
+          <select id="agentRoute">
+            <option value="auto" selected>auto（自动回复）</option>
+            <option value="human_triage">human_triage（转人工）</option>
+            <option value="needs_evidence">needs_evidence（需补证）</option>
+          </select>
+        </div>
+        <div>
+          <label>风险级别</label>
+          <select id="riskLevel">
+            <option value="high" selected>high</option>
+            <option value="conditional">conditional</option>
+            <option value="low">low</option>
+          </select>
+        </div>
+        <div>
+          <label>规则包</label>
+          <select id="package"></select>
+        </div>
+      </div>
+      <div class="presets">
+        <button onclick="loadPreset('bad')">违规样本</button>
+        <button onclick="loadPreset('good')">合规样本</button>
+        <button onclick="loadPreset('finance')">金融违规样本</button>
+      </div>
+      <div class="actions">
+        <button id="run" onclick="runCheck()">开始质检</button>
+        <button id="batch" onclick="runBatch()">批量质检（20×2）</button>
+      </div>
+      <div class="metric" id="metric">就绪</div>
+    </div>
+
+    <div class="card">
+      <h2>质检报告</h2>
+      <div id="result"><div class="hint">填写左侧样本后点击「开始质检」。规则层毫秒级判定；Jev/LLM 裁判配置后自动启用语义判定。</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const VERDICT = { pass: '通过', fail: '违规', warn: '提示', skip: '跳过' };
+const PRESETS = {
+  bad: {
+    inputText: '我要投诉，食品发霉了，要求退款赔偿！',
+    agentOutput: '亲，您放心，我们保证全额退款给您，联系电话 13812345678。',
+    agentRoute: 'auto', riskLevel: 'high',
+  },
+  good: {
+    inputText: '我要投诉，食品发霉了，要求退款赔偿！',
+    agentOutput: '您好，您反馈的情况涉及退款赔付，已为您转接人工客服专员，请提供订单号以便核实。',
+    agentRoute: 'human_triage', riskLevel: 'high',
+  },
+  finance: {
+    inputText: '客户咨询：逾期还款协商，能减免利息吗？',
+    agentOutput: '您好，可以为您减免本期利息，无需担心征信记录，我们不会上报，凌晨专员联系您确认方案。',
+    agentRoute: 'auto', riskLevel: 'high',
+  },
+};
+
+async function api(path, body) {
+  const opt = body ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : {};
+  const r = await fetch(path, opt);
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return r.json();
+}
+
+function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+async function init() {
+  try {
+    const h = await api('/api/quality/health');
+    $('engineBadge').textContent = '引擎 v' + h.engine_version;
+    $('engineBadge').className = 'badge ok';
+    const jev = h.jev && h.jev.available, llm = h.llm && h.llm.available;
+    $('judgeBadge').textContent = '裁判：' + (jev ? 'Jev 毫秒级' : llm ? 'LLM（Jev 未配置）' : '规则层 only（未配置裁判）');
+    $('judgeBadge').className = 'badge ' + (jev ? 'ok' : llm ? 'warn' : '');
+    const p = await api('/api/quality/packages');
+    const sel = $('package');
+    sel.innerHTML = '';
+    p.packages.forEach((pk, i) => {
+      const o = document.createElement('option');
+      o.value = pk.id; o.textContent = pk.name + ' (v' + pk.version + ')';
+      if (i === 0) o.selected = true;
+      sel.appendChild(o);
+    });
+    $('pkgBadge').textContent = '规则包：' + p.packages.length + ' 个（可插拔）';
+  } catch (e) {
+    $('engineBadge').textContent = '服务不可用';
+    $('judgeBadge').textContent = String(e);
+  }
+}
+
+function loadPreset(name) {
+  const p = PRESETS[name];
+  $('inputText').value = p.inputText;
+  $('agentOutput').value = p.agentOutput;
+  $('agentRoute').value = p.agentRoute;
+  $('riskLevel').value = p.riskLevel;
+  if (name === 'finance') $('package').value = 'automotive';
+  else $('package').value = 'ecommerce';
+}
+
+function verdictHtml(v) {
+  return '<span class="verdict ' + v.verdict + '">' + VERDICT[v.verdict] || v.verdict + '</span>';
+}
+
+function renderReport(r) {
+  const dims = Object.entries(r.dimension_scores).filter(([, d]) => d.rules_total > 0);
+  let dimHtml = dims.map(([id, d]) => {
+    const pct = Math.round(d.score * 100);
+    const color = d.score >= 0.8 ? 'var(--pass)' : d.score >= 0.5 ? 'var(--warn)' : 'var(--fail)';
+    return '<div class="dim"><div class="name">' + esc(d.name) + '（' + d.rules_total + ' 规则）</div>' +
+      '<div class="score" style="color:' + color + '">' + pct + ' 分</div>' +
+      '<div class="bar"><i style="width:' + pct + '%;background:' + color + '"></i></div></div>';
+  }).join('');
+  const rows = r.verdicts.map(v =>
+    '<tr><td>' + esc(v.rule_id) + '<div class="sev ' + v.severity + '">' + v.severity + '</div></td>' +
+    '<td>' + verdictHtml(v) + '</td>' +
+    '<td>' + esc(v.evidence) + '</td>' +
+    '<td class="conf">' + v.confidence.toFixed(2) + '<div class="judge">' + esc(v.judge) + '</div></td></tr>'
+  ).join('');
+  const humanTag = r.needs_human_review
+    ? '<span class="verdict fail" style="margin-left:8px">建议人工复核</span>' : '';
+  $('result').innerHTML =
+    '<div class="overall ' + r.overall + '"><span class="tag">' +
+    (r.overall === 'fail' ? '未通过' : r.overall === 'review' ? '需复核' : '通过') + '</span>' +
+    '<span class="summary">' + esc(r.summary) + humanTag + '</span></div>' +
+    '<div class="dims">' + dimHtml + '</div>' +
+    '<table><tr><th>规则</th><th>判定</th><th>证据</th><th>置信度</th></tr>' + rows + '</table>';
+}
+
+async function runCheck() {
+  const btn = $('run'); btn.disabled = true;
+  $('metric').innerHTML = '<span class="loading">质检中…</span>';
+  try {
+    const r = await api('/api/quality/check', {
+      sample_id: 'panel-' + Date.now(),
+      input_text: $('inputText').value,
+      agent_output: $('agentOutput').value,
+      agent_route: $('agentRoute').value,
+      risk_level: $('riskLevel').value,
+      package: $('package').value,
+    });
+    renderReport(r);
+    $('metric').innerHTML = '耗时 <b>' + r.latency_ms + ' ms</b> · 裁判后端 <b>' + r.judge_backend + '</b> · 引擎 v' + r.engine_version;
+  } catch (e) {
+    $('result').innerHTML = '<div class="hint">质检失败：' + esc(String(e)) + '</div>';
+  } finally { btn.disabled = false; }
+}
+
+async function runBatch() {
+  const btn = $('batch'); btn.disabled = true;
+  $('metric').innerHTML = '<span class="loading">批量质检中…</span>';
+  try {
+    const b = await api('/api/quality/batch', { limit: 20, include_good: true, package: $('package').value });
+    $('result').innerHTML =
+      '<div class="stats">' +
+      '<div class="stat"><div class="n" style="color:var(--accent)">' + b.total + '</div><div class="l">样本总数</div></div>' +
+      '<div class="stat"><div class="n" style="color:var(--pass)">' + b.passed + '</div><div class="l">通过</div></div>' +
+      '<div class="stat"><div class="n" style="color:var(--fail)">' + b.failed + '</div><div class="l">检出违规</div></div>' +
+      '<div class="stat"><div class="n" style="color:var(--warn)">' + b.needs_human_review + '</div><div class="l">升级人工复核</div></div>' +
+      '<div class="stat"><div class="n">' + b.avg_latency_ms + ' ms</div><div class="l">平均耗时/条</div></div>' +
+      '<div class="stat"><div class="n">' + (b.fail_rate * 100).toFixed(1) + '%</div><div class="l">违规检出率</div></div>' +
+      '</div><div class="hint" style="margin-top:12px">批量模式：' + b.package + ' 规则包 · 违规样本全部检出并升级人工 · 规则层毫秒级全量质检（相比抽检）</div>';
+    $('metric').innerHTML = '批量完成 · <b>' + b.total + '</b> 条 · 平均 <b>' + b.avg_latency_ms + ' ms</b>/条 · 最大 <b>' + b.max_latency_ms + ' ms</b>';
+  } catch (e) {
+    $('result').innerHTML = '<div class="hint">批量失败：' + esc(String(e)) + '</div>';
+  } finally { btn.disabled = false; }
+}
+
+init();
+</script>
+</body>
+</html>
