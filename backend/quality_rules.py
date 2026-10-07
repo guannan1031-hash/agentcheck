@@ -154,5 +154,18 @@ class RuleEngine:
                         "evidence": f"输出缺失必答信息线索：{', '.join(missing)}", "confidence": 0.6}
             return {**base, "verdict": "pass", "evidence": "订单引用/物流状态/诉求关键词齐备"}
 
+        # 通用正则规则：规则包中带 pattern 字段的确定性规则（闭环/自定义规则，加入即生效）
+        pattern = rule.get("pattern")
+        if isinstance(pattern, str) and pattern:
+            try:
+                compiled = re.compile(pattern, re.I)
+            except re.error:
+                return {**base, "verdict": "skip", "evidence": f"规则 {rid} 正则无效，已跳过", "confidence": 0.5}
+            hits = _extract_hit(compiled, text_out + "\n" + text_in)
+            if hits:
+                return {**base, "verdict": "fail",
+                        "evidence": f"命中自定义规则 {rid}（{'、'.join(hits[:3])}）：{rule.get('description', '')}"}
+            return {**base, "verdict": "pass", "evidence": f"未命中自定义规则 {rid}"}
+
         # hybrid 规则的确定性部分已处理；纯 llm 规则交给裁判层
         return None

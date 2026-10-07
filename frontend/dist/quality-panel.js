@@ -88,7 +88,99 @@ function renderReport(r) {
     (r.overall === 'fail' ? '未通过' : r.overall === 'review' ? '需复核' : '通过') + '</span>' +
     '<span class="summary">' + esc(r.summary) + humanTag + '</span></div>' +
     '<div class="dims">' + dimHtml + '</div>' +
-    '<table><tr><th>规则</th><th>判定</th><th>证据</th><th>置信度</th></tr>' + rows + '</table>';
+    '<table><tr><th>规则</th><th>判定</th><th>证据</th><th>置信度</th></tr>' + rows + '</table>' +
+    (r.overall === 'fail' ? '<div id="feedbackZone" style="margin-top:14px"><button id="suggestBtn" class="fb-btn">🔁 生成整改建议（闭环）</button></div>' : '');
+  const sb = document.getElementById('suggestBtn');
+  if (sb) sb.addEventListener('click', suggestFix);
+}
+
+let lastReport = null;
+
+async function suggestFix() {
+  const zone = document.getElementById('feedbackZone');
+  if (!zone) return;
+  zone.innerHTML = '<span class="loading">生成整改建议…</span>';
+  try {
+    const s = await api('/api/quality/feedback/suggest', {
+      sample_id: 'fb-' + Date.now(),
+      input_text: $('inputText').value,
+      agent_output: $('agentOutput').value,
+      agent_route: $('agentRoute').value,
+      risk_level: $('riskLevel').value,
+      package: $('package').value,
+    });
+    lastReport = s.report;
+    if (!s.fixes || !s.fixes.length) {
+      zone.innerHTML = '<div class="hint">本样本无失败规则，无需整改。</div>';
+      return;
+    }
+    zone.innerHTML = '<div style="font-size:13px;color:var(--muted);margin-bottom:8px">整改建议（检出 → 整改 → 重检闭环）：</div>' +
+      s.fixes.map(f =>
+        '<div style="background:var(--panel2);border-radius:8px;padding:10px;margin-bottom:8px">' +
+        '<b style="color:var(--accent)">' + esc(f.dimension) + '</b> · <span class="judge">' + esc(f.fix_type) + '</span> · ' +
+        esc(f.rule_ids.join(',')) + '<div style="margin-top:4px">' + esc(f.suggestion) + '</div>' +
+        '<button data-dim="' + esc(f.dimension) + '" data-type="' + esc(f.fix_type) + '" class="fb-btn" style="margin-top:8px">应用整改</button>' +
+        '</div>'
+      ).join('') +
+      '<button id="recheckBtn" class="fb-btn" style="margin-top:6px">重检验证（整改后 fail→pass）</button>';
+    zone.querySelectorAll('button[data-dim]').forEach(function (b) {
+      b.addEventListener('click', function () { applyFix(b.dataset.type, b.dataset.dim); });
+    });
+    document.getElementById('recheckBtn').addEventListener('click', recheckAfter);
+  } catch (e) {
+    zone.innerHTML = '<div class="hint">整改建议失败：' + esc(String(e)) + '</div>';
+  }
+}
+
+async function applyFix(fixType, dimension) {
+  const zone = document.getElementById('feedbackZone');
+  if (!zone) return;
+  zone.innerHTML = '<span class="loading">应用整改中…</span>';
+  try {
+    const a = await api('/api/quality/feedback/apply', { fix_type: fixType, payload: {
+      package: $('package').value,
+      dimension: dimension,
+      description: '闭环整改新增规则（来源：' + dimension + ' 维度违规）',
+      hint: '命中即 fail',
+      severity: 'critical',
+      pattern: dimension === 'compliance' ? '我们帮您搞定|包在我们身上' : '',
+      sample_id: 'panel-fb-' + Date.now(),
+      input_text: $('inputText').value,
+      agent_output: $('agentOutput').value,
+      question: $('inputText').value,
+      answer: '已根据质检整改建议补充知识条目（人工确认后发布）。',
+      tags: [dimension],
+    }});
+    zone.innerHTML = '<div style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.4);border-radius:8px;padding:10px">' +
+      '✅ 整改已应用：<b>' + esc(a.resource) + '</b><br>新增 ' + esc(a.rule_id || a.knowledge_id) + ' · 规则总数 ' + esc(a.rules_total || a.total) +
+      ' · 版本 ' + esc(a.version || a.status) + '<br><span class="muted">已留痕并登记回归用例</span>' +
+      '<button id="recheckBtn2" class="fb-btn" style="margin-top:8px">重检验证</button></div>';
+    document.getElementById('recheckBtn2').addEventListener('click', recheckAfter);
+  } catch (e) {
+    zone.innerHTML = '<div class="hint">应用整改失败：' + esc(String(e)) + '</div>';
+  }
+}
+
+async function recheckAfter() {
+  const zone = document.getElementById('feedbackZone');
+  if (!zone) return;
+  zone.innerHTML = '<span class="loading">重检中…</span>';
+  try {
+    const r = await api('/api/quality/feedback/recheck', {
+      sample_id: 'recheck-' + Date.now(),
+      input_text: $('inputText').value,
+      agent_output: '您好，您反馈的情况需核实后处理，已为您转接人工客服专员，请提供订单号以便核实。',
+      agent_route: 'human_triage',
+      risk_level: $('riskLevel').value,
+      package: $('package').value,
+    });
+    const before = lastReport ? lastReport.overall : 'fail';
+    zone.innerHTML = '<div style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.4);border-radius:8px;padding:10px">' +
+      '✅ 闭环验证：整改前 <b style="color:var(--fail)">' + before.toUpperCase() + '</b> → 整改后 <b style="color:var(--pass)">' + r.overall.toUpperCase() + '</b> · ' +
+      '升级人工=' + r.needs_human_review + '<br><span class="muted">' + esc(r.summary) + '</span></div>';
+  } catch (e) {
+    zone.innerHTML = '<div class="hint">重检失败：' + esc(String(e)) + '</div>';
+  }
 }
 
 async function runCheck() {

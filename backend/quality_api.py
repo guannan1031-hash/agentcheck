@@ -19,6 +19,7 @@ from pydantic import BaseModel, Field
 
 from .quality_engine import QualitySample, run_quality_check
 from .quality_judges import JudgeRouter, JevJudge, LLMJudge
+from .quality_feedback import suggest_fixes, apply_fix, recheck, get_feedback_log
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE_DIR = ROOT / "configs"
@@ -45,6 +46,19 @@ class BatchRequest(BaseModel):
     package: str = "ecommerce"
     limit: int = 20  # benchmark 抽样条数
     include_good: bool = True  # 同时构造合规样本对比
+
+
+class SuggestRequest(CheckRequest):
+    pass
+
+
+class ApplyRequest(BaseModel):
+    fix_type: str  # rule / knowledge / prompt
+    payload: dict = Field(default_factory=dict)
+
+
+class RecheckRequest(CheckRequest):
+    pass
 
 
 def _report_for(sample: QualitySample, package: str, router: JudgeRouter, mock: bool = False) -> dict:
@@ -141,6 +155,33 @@ def register_quality(app):
                 out.append({"id": key, "name": meta.get("name", key), "description": meta.get("description", ""),
                             "version": meta.get("version", "")})
         return {"packages": out}
+
+    # ---- 质检反馈闭环：检出 → 建议 → 整改 → 重检 ----
+
+    @router.post("/feedback/suggest")
+    def feedback_suggest(req: SuggestRequest):
+        """质检并生成整改建议（规则增强 / 知识补全 / 提示词优化）。"""
+        router_ = JudgeRouter()
+        sample = _make_sample(req)
+        report = _report_for(sample, req.package, router_)
+        fixes = suggest_fixes(report)
+        return {"report": report, "fixes": fixes}
+
+    @router.post("/feedback/apply")
+    def feedback_apply(req: ApplyRequest):
+        """应用整改动作（真实写入规则包/知识文件），返回更新摘要。"""
+        return apply_fix(req.fix_type, req.payload)
+
+    @router.post("/feedback/recheck")
+    def feedback_recheck(req: RecheckRequest):
+        """整改后重检，验证 fail → pass 闭环。"""
+        router_ = JudgeRouter()
+        sample = _make_sample(req)
+        return recheck(sample, req.package, router_)
+
+    @router.get("/feedback/log")
+    def feedback_log(limit: int = 20):
+        return get_feedback_log(limit)
 
     @router.get("/health")
     def health():

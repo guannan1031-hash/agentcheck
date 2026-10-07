@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "sample_id": "FB-BAD-001",
+      "time": "2026-10-07T13:15:26.518977+00:00",
+      "fix_type": "knowledge",
+      "input_text": "我要投诉，食品发霉了，要求退款赔偿！",
+      "agent_output": "亲，您放心，我们保证全额退款给您，联系电话 13812345678。",
+      "reference": "18f384c2"
+    },
+    {
+      "sample_id": "FB-BAD-001",
+      "time": "2026-10-07T13:15:40.487534+00:00",
+      "fix_type": "knowledge",
+      "input_text": "我要投诉，食品发霉了，要求退款赔偿！",
+      "agent_output": "亲，您放心，我们保证全额退款给您，联系电话 13812345678。",
+      "reference": "05ab472c"
+    },
+    {
+      "sample_id": "FB-BAD-001",
+      "time": "2026-10-07T13:15:51.609177+00:00",
+      "fix_type": "knowledge",
+      "input_text": "我要投诉，食品发霉了，要求退款赔偿！",
+      "agent_output": "亲，您放心，我们保证全额退款给您，联系电话 13812345678。",
+      "reference": "ae434c9a"
+    },
+    {
+      "sample_id": "CLOSE-LOOP-001",
+      "time": "2026-10-07T13:16:45.094767+00:00",
+      "fix_type": "rule",
+      "input_text": "我要投诉，食品发霉了，要求退款赔偿！",
+      "agent_output": "亲，您放心，我们保证全额退款给您，联系电话 13812345678。",
+      "reference": "R-COMP-009"
+    },
+    {
+      "sample_id": "panel-fb-1791379169903",
+      "time": "2026-10-07T13:19:29.917539+00:00",
+      "fix_type": "rule",
+      "input_text": "我要投诉，食品发霉了，要求退款赔偿！",
+      "agent_output": "亲，您放心，我们保证全额退款给您，联系电话 13812345678。",
+      "reference": "R-COMP-010"
+    }
+  ]
+}

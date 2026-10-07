@@ -20,7 +20,8 @@ AgentCheck 是一个**引擎通用、规则可插拔、裁判可替换**的 Agen
 | 双裁判降级链 | Jev → LLM → 规则层兜底，任何环境可运行、都有产出 |
 | 置信度分级升级 | 低置信不硬判，升级人工复核，机器初筛 + 人工终审闭环 |
 | 证据链可解释 | 每条判定带命中词/依据/置信度，支持整改闭环与审计 |
-| 统一质检 API | `/api/quality/*`：单条 / 批量 / 规则包 / 引擎状态 |
+| 质检反馈闭环 | 检出 → 整改建议（规则增强/知识补全/提示词优化）→ 应用整改 → 重检验证 → 回归用例防复发 |
+| 统一质检 API | `/api/quality/*`：单条 / 批量 / 规则包 / 引擎状态 / 反馈闭环 |
 
 ## 技术架构
 
@@ -40,8 +41,9 @@ Agent 输出（回复 + 路由决策）
 - `backend/quality_rules.py` — 规则层：加载规则包 JSON，执行确定性规则（复用 `safety.py` 正则体系）
 - `backend/quality_judges.py` — 裁判层：`JevJudge`（System One）/ `LLMJudge`（DeepSeek/智谱）接口化，自动降级
 - `backend/quality_engine.py` — 主流程：三通道聚合 → 维度得分 → 总体结论 → 人工复核升级
-- `backend/quality_api.py` — FastAPI：`/check` `/batch` `/packages` `/health`
-- `frontend/dist/quality-panel.html` — 质检工作台（报告渲染 / 批量仪表 / 规则包切换）
+- `backend/quality_api.py` — FastAPI：`/check` `/batch` `/packages` `/health` `/feedback/*`
+- `backend/quality_feedback.py` — 反馈闭环：整改建议生成 / 真实写库应用 / 重检验证 / 回归用例 / 留痕
+- `frontend/dist/quality-panel.html` — 质检工作台（报告渲染 / 批量仪表 / 规则包切换 / 闭环整改）
 
 ## 规则包（可插拔）
 
