@@ -1,0 +1,81 @@
+﻿ffmpeg-win-x86_64-v7.1.exe : ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg develo
+pers
+所在位置 行:1 字符: 63
++ ... Agent质检工具"; & .\.venv\Lib\site-packages\imageio_ffmpeg\binaries\ffmpe ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ffmpeg version ...mpeg developers:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-font
+config --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable
+-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx
+265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --en
+able-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enabl
+e-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-li
+bvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enab
+le-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --
+enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      59. 39.100 / 59. 39.100
+  libavcodec     61. 19.100 / 61. 19.100
+  libavformat    61.  7.100 / 61.  7.100
+  libavdevice    61.  3.100 / 61.  3.100
+  libavfilter    10.  4.100 / 10.  4.100
+  libswscale      8.  3.100 /  8.  3.100
+  libswresample   5.  3.100 /  5.  3.100
+  libpostproc    58.  3.100 / 58.  3.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'deliverables\demo-final.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:01:16.44, start: 0.000000, bitrate: 179 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1280x720, 177 kb/s, 25 fps, 25 t
+br, 12800 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+[wav @ 0000027409aca200] Ignoring maximum wav data size, file may be invalid
+[wav @ 0000027409aca200] Estimating duration from bitrate, this may be inaccurate
+[aist#1:0/pcm_s16le @ 0000027409fbad40] Guessed Channel Layout: stereo
+Input #1, wav, from 'deliverables\voiceover-v2.wav':
+  Metadata:
+    encoder         : Lavf58.76.100
+  Duration: 00:01:05.80, bitrate: 1280 kb/s
+  Stream #1:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 40000 Hz, stereo, s16, 1280 kb/s
+Stream mapping:
+  Stream #1:0 (pcm_s16le) -> atempo:default
+  Stream #0:0 -> #0:0 (copy)
+  apad:default -> Stream #0:1 (aac)
+Press [q] to stop, [?] for help
+Output #0, mp4, to 'deliverables\demo-final-voice.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.100
+  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1280x720, q=2-31, 177 kb/s, 25 fps, 2
+5 tbr, 12800 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s
+      Metadata:
+        encoder         : Lavc61.19.100 aac
+frame=  214 fps=0.0 q=-1.0 size=       0KiB time=00:00:08.35 bitrate=   0.0kbits/s speed=16.4x    
+frame=  469 fps=455 q=-1.0 size=     512KiB time=00:00:18.57 bitrate= 225.8kbits/s speed=  18x    
+frame=  710 fps=457 q=-1.0 size=    1024KiB time=00:00:28.18 bitrate= 297.6kbits/s speed=18.1x    
+frame=  992 fps=481 q=-1.0 size=    1536KiB time=00:00:39.49 bitrate= 318.6kbits/s speed=19.2x    
+frame= 1248 fps=484 q=-1.0 size=    1792KiB time=00:00:49.71 bitrate= 295.3kbits/s speed=19.3x    
+frame= 1483 fps=479 q=-1.0 size=    2304KiB time=00:00:59.11 bitrate= 319.3kbits/s speed=19.1x    
+frame= 1796 fps=496 q=-1.0 size=    2560KiB time=00:01:11.65 bitrate= 292.7kbits/s speed=19.8x    
+[wav @ 0000027409aca200] Packet corrupt (stream = 0, dts = NOPTS).
+[in#1/wav @ 0000027409abe800] corrupt input packet in stream 0
+[mp4 @ 0000027409ee9040] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 0000027409d63400] video:1652KiB audio:1148KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing 
+overhead: 2.283701%
+frame= 1911 fps=502 q=-1.0 Lsize=    2864KiB time=00:01:16.36 bitrate= 307.2kbits/s speed=20.1x    
+[aac @ 0000027409ac8bc0] Qavg: 4036.713

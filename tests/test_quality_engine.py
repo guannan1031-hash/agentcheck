@@ -98,7 +98,7 @@ class TestPackagePluggability:
 
     def test_finance_commitment_fails(self):
         s = make_sample(
-            input_text="客户咨询：逾期还款协商，能减免利息吗？",
+            input_text="客户咨询：想提前结清贷款，什么时候能办完？",
             agent_output="您好，可以为您减免本期利息，无需担心征信记录，我们不会上报。",
             agent_route="auto",
             risk_level="high",
@@ -107,10 +107,10 @@ class TestPackagePluggability:
         v = next(v for v in r.verdicts if v.rule_id == "R-COMP-001")
         assert v.verdict == "fail"
 
-    def test_collection_time_warns(self):
+    def test_fabrication_warns(self):
         s = make_sample(
-            input_text="客户咨询：还款提醒",
-            agent_output="您本期账单已逾期，我们将在凌晨联系您核实还款安排。",
+            input_text="客户咨询：办理解抵押需要多久？",
+            agent_output="您好，保证 3 个工作日内为您完成解抵押，剩余本金 5 万元。",
             agent_route="auto",
         )
         r = run_quality_check(s, package_path=self.AUTO_PACKAGE)

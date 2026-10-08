@@ -2,7 +2,7 @@
   "meta": {
     "package_id": "ecommerce_cs_v1",
     "name": "电商客服质检规则包",
-    "version": "0.5",
+    "version": "0.6",
     "description": "针对电商客服 Agent 输出的质量门禁规则包：路由正确性、隐私保护、合规红线、语义质量、信息完整性。基于 Project 006 的 218 业务场景基准设计。",
     "source_scenarios": "configs/scenarios-v1.4.json (218 scenarios)",
     "source_benchmark": "tests/fixtures/full-scenario-benchmark-v1.4.json (218 cases)",
@@ -165,6 +165,16 @@
       "hint": "命中即 fail",
       "source": "quality-feedback-loop",
       "added_at": "2026-10-08T03:30:34.610005+00:00"
+    },
+    {
+      "id": "R-COMP-013",
+      "dimension": "compliance",
+      "type": "deterministic",
+      "severity": "critical",
+      "description": "闭环整改新增规则（来源：compliance 维度违规）",
+      "hint": "命中即 fail",
+      "source": "quality-feedback-loop",
+      "added_at": "2026-10-08T11:05:51.395653+00:00"
     }
   ]
 }

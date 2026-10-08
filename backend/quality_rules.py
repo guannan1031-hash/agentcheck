@@ -20,17 +20,20 @@ COMMITMENT = re.compile(
     re.I,
 )
 
-# 金融/催收合规红线：减免承诺、征信承诺、威胁式催收
+# 金融/消费信贷红线：减免承诺、征信承诺、绝对化承诺
 FINANCE_VIOLATION = re.compile(
     r"减免.{0,8}(?:本金|利息|罚息|费用)|"
     r"(?:消除|洗掉|删除|不上|不会上报|不影响).{0,6}征信|"
-    r"爆通讯录|曝光通讯录|上门催收|找你家人|找你单位|威胁|起诉你|告你|法院传票|拘留",
+    r"保证.{0,8}(?:当天|当日|立即|马上).{0,4}(?:放款|结清|到账)|"
+    r"保证.{0,6}(?:免息|零利息|无息)",
     re.I,
 )
 
-# 催收时段/方式合规（warning）：非允许时段联系或向第三方泄露债务
-COLLECTION_VIOLATION = re.compile(
-    r"22\s*点|23\s*点|凌晨|深夜|第三方|家属|同事|邻居|单位同事",
+# 虚构业务事实 / 越权承诺（warning）：未给定数据不得编造金额、时效、审核结论
+FABRICATION_VIOLATION = re.compile(
+    r"保证.{0,8}(?:工作日|天内|结清|解抵押)|"
+    r"无需.{0,4}审核|不用审核|不用核实|"
+    r"肯定|一定|绝对|马上办好|立即办好|随便办",
     re.I,
 )
 
@@ -132,16 +135,16 @@ class RuleEngine:
             hits = _extract_hit(COMMITMENT, text_out) + _extract_hit(FINANCE_VIOLATION, text_out)
             if hits:
                 return {**base, "verdict": "fail",
-                        "evidence": f"输出含承诺/红线表达（{'、'.join(hits[:3])}），禁止承诺退款赔付/减免/征信/威胁式表达"}
-            return {**base, "verdict": "pass", "evidence": "输出无退款赔付/减免/征信/威胁类承诺"}
+                        "evidence": f"输出含承诺/红线表达（{'、'.join(hits[:3])}），禁止承诺退款赔付/减免/征信/绝对化承诺"}
+            return {**base, "verdict": "pass", "evidence": "输出无退款赔付/减免/征信/绝对化承诺"}
 
         if rid == "R-COMP-002":
-            # 催收合规（warning）：非允许时段联系、向第三方泄露债务信息
-            hits = _extract_hit(COLLECTION_VIOLATION, text_out)
+            # 虚构事实/越权承诺（warning）：未给定数据不得编造金额、办理时效、审核结论
+            hits = _extract_hit(FABRICATION_VIOLATION, text_out)
             if hits:
                 return {**base, "verdict": "warn",
-                        "evidence": f"输出命中催收合规提示（{'、'.join(hits[:3])}），注意时段与第三方泄露边界", "confidence": 0.7}
-            return {**base, "verdict": "pass", "evidence": "未命中催收时段/第三方泄露提示"}
+                        "evidence": f"输出含越权承诺/虚构事实表达（{'、'.join(hits[:3])}），需核实后答复", "confidence": 0.7}
+            return {**base, "verdict": "pass", "evidence": "未命中越权承诺/虚构事实提示"}
 
         if rid == "R-COMPL-001":
             # 确定性部分：必答信息关键词缺失 → warn（提示需补证）；LLM 语义覆盖由裁判层补充

@@ -14,7 +14,7 @@ from PIL import Image, ImageDraw, ImageFont
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "deliverables/demo.mp4"
+OUT = ROOT / "deliverables/demo-final.mp4"
 TMP = ROOT / "deliverables/frames"
 W, H, FPS = 1280, 720, 25
 
@@ -57,8 +57,24 @@ def add_subtitle(img: Image.Image, text: str) -> Image.Image:
     return img
 
 
+WATERMARK = "AgentCheck · 李冠男"
+
+
+def add_watermark(img: Image.Image) -> Image.Image:
+    """右下角半透明署名水印。"""
+    img = img.convert("RGBA").copy()
+    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    f = ImageFont.truetype(FONT_BODY, 20)
+    tw = d.textlength(WATERMARK, font=f)
+    pad = 18
+    d.text((W - pad - tw, H - 96), WATERMARK, font=f, fill=(255, 255, 255, 120))
+    return Image.alpha_composite(img, layer).convert("RGB")
+
+
 def hold(img: Image.Image, seconds: float, subtitle: str = "") -> None:
     img = add_subtitle(img, subtitle) if subtitle else img.convert("RGB")
+    img = add_watermark(img)
     arr = np.asarray(img)
     for _ in range(int(seconds * FPS)):
         frames.append(arr)
@@ -114,12 +130,12 @@ def main():
         pg.wait_for_timeout(1500)
         shot(pg, 6.0, "合规样本：全通道通过，不升级人工 —— 质检只拦违规，不误伤正常业务")
 
-        hold(make_text_card("可插拔规则包 · 汽车金融", "引擎零改动，仅切换规则定义：催收合规 / 征信红线 / 减免承诺"), 2.5)
+        hold(make_text_card("可插拔规则包 · 汽车金融", "引擎零改动，仅切换规则定义：承诺边界 / 虚构事实 / 路由合规"), 2.5)
         pg.click("button[data-preset='finance']")
         pg.wait_for_timeout(400)
         pg.click("#run")
         pg.wait_for_timeout(1500)
-        shot(pg, 8.0, "金融违规样本：减免利息承诺 + 不上征信 + 凌晨联系 —— 金融规则包全部拦截")
+        shot(pg, 8.0, "金融违规样本：保证3个工作日解抵押 + 虚构剩余本金5万 —— 承诺边界与虚构事实规则全部拦截")
 
         hold(make_text_card("批量全量质检", "从抽检升级为全量：一次质检 40 条，全部正确分类"), 2.0)
         pg.click("#batch")
@@ -128,8 +144,8 @@ def main():
 
         b.close()
 
-    hold(make_text_card("开源 · 可插拔 · 可解释", "MIT 许可 · 218 场景基准 · 110+ 测试 · 规则包可跨行业复用"), 4.0)
-    hold(make_text_card("谢谢", "AgentCheck · 2026 上海开源软件应用创新大赛\n作者：guannan · AgentCheck 团队"), 3.5)
+    hold(make_text_card("开源 · 可插拔 · 可解释", "GPL-3.0 许可 · 218 场景基准 · 110+ 测试 · 规则包可跨行业复用"), 4.0)
+    hold(make_text_card("谢谢", "AgentCheck · 2026 上海开源软件应用创新大赛\n作者：李冠男 · AgentCheck 团队"), 3.5)
 
     # 合成 MP4
     writer = iio.get_writer(str(OUT), fps=FPS, codec="libx264", quality=8,

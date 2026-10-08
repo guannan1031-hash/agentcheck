@@ -52,7 +52,7 @@ Agent 输出（回复 + 路由决策）
 | 规则包 | 文件 | 覆盖 |
 | --- | --- | --- |
 | 电商客服 | `configs/quality_rules_ecommerce.json` | 路由/隐私/合规/语义/完整性，基于 218 业务场景基准 |
-| 汽车金融 | `configs/quality_rules_automotive_finance.json` | 催收合规、征信红线、减免承诺、投诉升级 |
+| 汽车金融 | `configs/quality_rules_automotive_finance.json` | 承诺边界、虚构事实、路由合规（还款/结清/解抵押场景） |
 
 扩展新行业：新建 `quality_rules_<industry>.json`，按 `dimensions + rules` 结构定义即可，引擎零改动。
 
@@ -116,7 +116,7 @@ python scripts/verify_quality_api.py          # API 真实字节级验证
 
 ## 开源治理
 
-- 许可证：MIT（详见 `docs/LICENSE_DECISION.md`，第三方依赖许可齐备）
+- 许可证：GPL-3.0（允许商用但衍生必须开源，防闭源商用；SaaS 防护可升级 AGPL-3.0，详见 `docs/LICENSE_DECISION.md`，第三方依赖许可齐备）
 - 工程规范：CONTRIBUTING.md / SECURITY.md / AGENTS.md
 - 部署：Docker Compose 一键启动（`compose.yaml`）
 
@@ -129,4 +129,4 @@ python scripts/verify_quality_api.py          # API 真实字节级验证
 
 ## License
 
-MIT License. See [LICENSE](docs/LICENSE_DECISION.md) for details.
+GPL-3.0 License. See [LICENSE](LICENSE) for details.

@@ -40,8 +40,8 @@
 <div class="cover">
   <h1>AgentCheck · Agent 输出质检工具</h1>
   <div class="sub">跨平台 Agent 输出的统一质量门禁 —— 毫秒级全量质检 · 可插拔规则包 · 证据可解释</div>
-  <div class="meta">2026 上海开源软件应用创新大赛 · 开源 AI 工具赛道 · 作品介绍（V1.0）</div>
-  <div class="sub" style="margin-top:10px;font-size:14px;color:#2b5ce6">作者：guannan · AgentCheck 团队</div>
+  <div class="meta">2026 上海开源软件应用创新大赛 · 开源 AI 工具赛道 · 作品介绍（V1.2）</div>
+  <div class="sub" style="margin-top:10px;font-size:14px;color:#2b5ce6">作者：李冠男 · AgentCheck 团队</div>
 </div>
 
 <h2>一、背景与痛点</h2>
@@ -93,7 +93,7 @@
 <h3>引擎实现</h3>
 <table>
   <tr><th style="width:26%">模块</th><th>职责</th></tr>
-  <tr><td>quality_rules.py</td><td>规则层：加载规则包 JSON，执行路由合法性 / 隐私 / 合规红线 / 完整性正则（复用 safety.py 正则体系，扩展金融合规与催收时段检测）</td></tr>
+  <tr><td>quality_rules.py</td><td>规则层：加载规则包 JSON，执行路由合法性 / 隐私 / 合规红线 / 完整性正则（复用 safety.py 正则体系，扩展金融承诺边界与虚构事实检测）</td></tr>
   <tr><td>quality_judges.py</td><td>裁判层：<b>JevJudge</b>（TypeSafe System One，noul 概率判定 + 置信度）与 <b>LLMJudge</b>（DeepSeek/智谱，结构化 JSON 判定）接口化，JudgeRouter 自动降级</td></tr>
   <tr><td>quality_engine.py</td><td>主流程：三通道聚合 → 维度加权得分 → 总体结论（pass/review/fail）→ needs_human_review 升级</td></tr>
   <tr><td>quality_api.py</td><td>FastAPI：/check 单条 · /batch 批量统计 · /packages 规则包 · /health 引擎状态 · /feedback/* 闭环 · /insights/* 数据反哺</td></tr>
@@ -116,7 +116,7 @@
 <p>基于 218 个业务场景（退换退款/食品安全/订单物流等 10 个域）与 93KB 基准对话集，对 Agent 每条输出执行质检。演示样本：客户投诉"食品发霉要求退款赔偿"，Agent 若<b>自动回复并承诺全额退款</b> → 路由/合规/隐私三通道全红，<span class="red">0.4–1.7ms 判定违规并升级人工</span>；Agent 若<b>正确转人工</b> → 全通道通过。</p>
 
 <h3>场景 2：汽车金融客服（可插拔规则包实例）</h3>
-<p>同一引擎加载 <b>汽车金融规则包</b>：催收合规（禁非允许时段联系、禁向第三方泄露债务）、征信红线（禁承诺消除征信）、减免承诺（禁承诺减免本金/利息）、监管投诉升级。演示"减免利息 + 不上征信"违规输出 → 立即拦截。</p>
+<p>同一引擎加载 <b>汽车金融/融资租赁规则包</b>：承诺边界（禁保证当天放款、免息、不影响征信）、虚构事实（禁编造剩余本金/结清金额/解抵押时效）、隐私与路由合规、投诉升级。演示"保证 3 个工作日解抵押 + 虚构剩余本金 5 万"的越权承诺输出 → 立即拦截。覆盖还款咨询、提前结清、解抵押办理等客户服务场景。</p>
 
 <h3>场景 3：批量全量质检</h3>
 <p>一次性质检 40 条样本（20 违规 + 20 合规）：<b>全部正确分类</b>，平均 0.4ms/条，违规 100% 检出并进入人工复核队列 —— 支撑"从抽检到全量"的质检升级。</p>
@@ -125,10 +125,17 @@
 <p>质检发现违规后，一键生成<b>整改建议</b>（路由策略 / 隐私规则 / 合规规则 / 知识补全 / 提示词优化）→ 应用整改<b>真实写入规则包</b>（带 pattern 的新规则加入即生效，规则包版本随整改自动递增 0.1→0.3）→ <b>重检验证 fail→pass</b>（实测得分 0.00→1.00）→ 整改样本登记回归用例防复发，全程留痕可审计。</p>
 <p>同时质检数据反哺业务：<b>人工培训课件</b>（按违规维度聚合典型案例与正确话术）、<b>客户画像</b>（218 场景聚合诉求域/风险/高频词）、<b>复购节奏</b>（质检关联客户订单 → 复购率与周期分析，演示用脱敏示例数据）。</p>
 
-<div class="page-break"></div>
+<h3>演示视频与代码仓库</h3>
+<ul>
+  <li>代码仓库：<span class="badge">GitHub（公开，见提交邮件）</span> · 本地一键运行：<b>setup → start → 打开 /quality-panel.html</b></li>
+  <li>演示视频：<span class="badge">见提交邮件附件链接</span>（76 秒：引擎 → 违规检出 → <b>闭环整改 fail→pass</b> → 合规样本 → 金融包 → 批量质检）</li>
+  <li>数据合规：全部使用合成/脱敏场景数据，无真实客户信息。</li>
+</ul>
+
 <h2>五、数据飞轮：质检 → 数据反哺 → 客服进化</h2>
 <p>质检不是终点，而是<b>企业客服数据的生产入口</b>：每一条质检判定都产出结构化证据（问题点 / 客户输入 / 路由决策 / 时间戳），这些证据持续反哺 AI 客服与人工客服，形成两个闭环共用一套证据的质量飞轮。</p>
 
+<div class="page-break"></div>
 <svg viewBox="0 0 640 440" width="100%" style="max-width:640px;margin:10px auto;display:block;font-family:'Microsoft YaHei',sans-serif">
   <!-- 环形连线（顺时针箭头） -->
   <defs>
@@ -196,13 +203,6 @@
 </table>
 <p style="margin-top:10px"><b>为什么这是关键差异化</b>：平台自带质检（飞鸽等）止步于"拦一条"，我们的质检证据反哺"拦一类 → 培训一队人 → 洞察一群客户"——质检成本转化为持续进化的客服资产，这是 Agent 客服规模化运营的刚需能力。</p>
 
-<h3>演示视频与代码仓库</h3>
-<ul>
-  <li>代码仓库：<span class="badge">GitHub（公开，见提交邮件）</span> · 本地一键运行：<b>setup → start → 打开 /quality-panel.html</b></li>
-  <li>演示视频：<span class="badge">见提交邮件附件链接</span>（76 秒：引擎 → 违规检出 → <b>闭环整改 fail→pass</b> → 合规样本 → 金融包 → 批量质检）</li>
-  <li>数据合规：全部使用合成/脱敏场景数据，无真实客户信息。</li>
-</ul>
-
 <h2>六、创新点（技术创新维度）</h2>
 <table>
   <tr><th>创新点</th><th>价值</th></tr>
@@ -219,7 +219,7 @@
 <h2>七、开源治理与长期发展</h2>
 <h3>开源治理（20%）</h3>
 <ul>
-  <li>许可证：MIT（详见 docs/LICENSE_DECISION.md，第三方依赖许可齐备）；</li>
+  <li>许可证：GPL-3.0（允许商用但衍生必须开源，防闭源商用；SaaS 防护可升级 AGPL-3.0，详见 docs/LICENSE_DECISION.md，第三方依赖许可齐备）；</li>
   <li>工程规范：CONTRIBUTING.md / SECURITY.md / AGENTS.md 齐备，密钥运行时读取绝不落盘；</li>
   <li>测试基线：<b>110+ 项测试</b>（质检引擎 12 + 反馈闭环 5 + 数据反哺 4 + 006 基线 98 项），Docker Compose 一键部署；</li>
   <li>数据合规：合成/脱敏场景数据公开，隐私与安全规则内建于引擎。</li>
@@ -234,7 +234,7 @@
 </ul>
 
 <div class="foot">
-  AgentCheck · 作者 guannan · 2026 上海开源软件应用创新大赛作品介绍（V1.1）· 数据均为合成/脱敏
+  AgentCheck · 作者 李冠男 · 2026 上海开源软件应用创新大赛作品介绍（V1.2）· 数据均为合成/脱敏
 </div>
 
 </body>

@@ -13,8 +13,8 @@ const PRESETS = {
     agentRoute: 'human_triage', riskLevel: 'high',
   },
   finance: {
-    inputText: '客户咨询：逾期还款协商，能减免利息吗？',
-    agentOutput: '您好，可以为您减免本期利息，无需担心征信记录，我们不会上报，凌晨专员联系您确认方案。',
+    inputText: '客户咨询：想提前结清贷款并办理解抵押，大概多久能办完？',
+    agentOutput: '您好，我这边就可以直接为您办理结清，保证 3 个工作日内完成解抵押，剩余本金 5 万元，无需任何审核。',
     agentRoute: 'auto', riskLevel: 'high',
   },
 };
