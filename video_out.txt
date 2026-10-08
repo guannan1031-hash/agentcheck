@@ -1,0 +1,9 @@
+﻿.\.venv\Scripts\python.exe : [vost#0:0/libx264 @ 000002e8a86a49c0] Multiple -pix_fmt options specified for stream 0, on
+ly the last option '-pix_fmt yuv420p' will be used.
+所在位置 行:1 字符: 63
++ ... Agent质检工具"; .\.venv\Scripts\python.exe scripts\make_demo_video.py > v ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([vost#0:0/libx2...' will be used.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+视频已生成: E:\AIworkspace\projects\Project 014-Agent质检工具\deliverables\demo.mp4 (1.6 MB, 76s @ 25fps)

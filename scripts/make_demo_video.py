@@ -35,8 +35,12 @@ def make_text_card(title: str, sub: str, accent: tuple = ACCENT) -> Image.Image:
     f_sub = ImageFont.truetype(FONT_BODY, 26)
     tw = d.textlength(title, font=f_title)
     d.text(((W - tw) / 2, H / 2 - 90), title, font=f_title, fill=accent)
-    sw = d.textlength(sub, font=f_sub)
-    d.text(((W - sw) / 2, H / 2 + 20), sub, font=f_sub, fill=MUTED)
+    lines = sub.split("\n")
+    line_h = 38
+    start_y = H / 2 + 20 - (len(lines) - 1) * line_h / 2
+    for i, line in enumerate(lines):
+        sw = d.textlength(line, font=f_sub)
+        d.text(((W - sw) / 2, start_y + i * line_h), line, font=f_sub, fill=MUTED)
     return img
 
 
@@ -125,7 +129,7 @@ def main():
         b.close()
 
     hold(make_text_card("开源 · 可插拔 · 可解释", "MIT 许可 · 218 场景基准 · 110+ 测试 · 规则包可跨行业复用"), 4.0)
-    hold(make_text_card("谢谢", "AgentCheck · 2026 上海开源软件应用创新大赛"), 3.0)
+    hold(make_text_card("谢谢", "AgentCheck · 2026 上海开源软件应用创新大赛\n作者：guannan · AgentCheck 团队"), 3.5)
 
     # 合成 MP4
     writer = iio.get_writer(str(OUT), fps=FPS, codec="libx264", quality=8,

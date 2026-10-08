@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <title>AgentCheck · Agent 输出质检工具 — 参赛作品介绍</title>
 <style>
-  @page { size: A4; margin: 18mm 16mm; }
+  @page { size: A4; margin: 12mm 14mm; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font: 13px/1.7 "Microsoft YaHei", "PingFang SC", system-ui, sans-serif; color: #1c2430; max-width: 900px; margin: 0 auto; padding: 20px; }
+  body { font: 13px/1.7 "Microsoft YaHei", "PingFang SC", system-ui, sans-serif; color: #1c2430; max-width: 100%; margin: 0 auto; padding: 6px; }
   .cover { text-align: center; padding: 40px 0 28px; border-bottom: 3px solid #2b5ce6; margin-bottom: 26px; }
   .cover h1 { font-size: 30px; letter-spacing: 1px; color: #0f1b33; }
   .cover .sub { font-size: 15px; color: #5a6b85; margin-top: 8px; }
@@ -41,6 +41,7 @@
   <h1>AgentCheck · Agent 输出质检工具</h1>
   <div class="sub">跨平台 Agent 输出的统一质量门禁 —— 毫秒级全量质检 · 可插拔规则包 · 证据可解释</div>
   <div class="meta">2026 上海开源软件应用创新大赛 · 开源 AI 工具赛道 · 作品介绍（V1.0）</div>
+  <div class="sub" style="margin-top:10px;font-size:14px;color:#2b5ce6">作者：guannan · AgentCheck 团队</div>
 </div>
 
 <h2>一、背景与痛点</h2>
@@ -110,7 +111,6 @@
   <li><b>为什么做闭环与数据反哺</b>：质检不是终点而是数据生产入口——违规证据反哺规则包（pattern 驱动加入即生效）、知识库（待发布）、培训课件与客户分析，让 AI 客服随质检持续进化，形成企业级质量飞轮。</li>
 </ul>
 
-<div class="page-break"></div>
 <h2>四、应用场景与演示</h2>
 <h3>场景 1：电商客服质检（内置 218 场景基准）</h3>
 <p>基于 218 个业务场景（退换退款/食品安全/订单物流等 10 个域）与 93KB 基准对话集，对 Agent 每条输出执行质检。演示样本：客户投诉"食品发霉要求退款赔偿"，Agent 若<b>自动回复并承诺全额退款</b> → 路由/合规/隐私三通道全红，<span class="red">0.4–1.7ms 判定违规并升级人工</span>；Agent 若<b>正确转人工</b> → 全通道通过。</p>
@@ -125,6 +125,77 @@
 <p>质检发现违规后，一键生成<b>整改建议</b>（路由策略 / 隐私规则 / 合规规则 / 知识补全 / 提示词优化）→ 应用整改<b>真实写入规则包</b>（带 pattern 的新规则加入即生效，规则包版本随整改自动递增 0.1→0.3）→ <b>重检验证 fail→pass</b>（实测得分 0.00→1.00）→ 整改样本登记回归用例防复发，全程留痕可审计。</p>
 <p>同时质检数据反哺业务：<b>人工培训课件</b>（按违规维度聚合典型案例与正确话术）、<b>客户画像</b>（218 场景聚合诉求域/风险/高频词）、<b>复购节奏</b>（质检关联客户订单 → 复购率与周期分析，演示用脱敏示例数据）。</p>
 
+<div class="page-break"></div>
+<h2>五、数据飞轮：质检 → 数据反哺 → 客服进化</h2>
+<p>质检不是终点，而是<b>企业客服数据的生产入口</b>：每一条质检判定都产出结构化证据（问题点 / 客户输入 / 路由决策 / 时间戳），这些证据持续反哺 AI 客服与人工客服，形成两个闭环共用一套证据的质量飞轮。</p>
+
+<svg viewBox="0 0 640 440" width="100%" style="max-width:640px;margin:10px auto;display:block;font-family:'Microsoft YaHei',sans-serif">
+  <!-- 环形连线（顺时针箭头） -->
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 z" fill="#2b5ce6"/>
+    </marker>
+  </defs>
+  <!-- 上→右 -->
+  <path d="M 355 75 Q 470 70 508 160" fill="none" stroke="#2b5ce6" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- 右→下 -->
+  <path d="M 565 250 Q 560 345 465 372" fill="none" stroke="#2b5ce6" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- 下→左 -->
+  <path d="M 285 395 Q 170 400 132 320" fill="none" stroke="#2b5ce6" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- 左→上 -->
+  <path d="M 75 180 Q 80 85 175 58" fill="none" stroke="#2b5ce6" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- 中心 -->
+  <ellipse cx="320" cy="222" rx="95" ry="62" fill="#eef3ff" stroke="#2b5ce6" stroke-width="2"/>
+  <text x="320" y="210" text-anchor="middle" font-size="16" font-weight="700" fill="#0f1b33">质检引擎</text>
+  <text x="320" y="232" text-anchor="middle" font-size="12" fill="#2b5ce6">毫秒级全量 · 证据链</text>
+  <text x="320" y="252" text-anchor="middle" font-size="11" fill="#5a6b85">持续循环 · 越检越准</text>
+
+  <!-- 上节点：检出问题点 -->
+  <g>
+    <rect x="240" y="22" width="160" height="68" rx="10" fill="#fff" stroke="#d64545" stroke-width="1.5"/>
+    <text x="320" y="42" text-anchor="middle" font-size="12.5" font-weight="700" fill="#d64545">① 检出问题点</text>
+    <text x="320" y="60" text-anchor="middle" font-size="11" fill="#2a3444">路由/隐私/合规/语义违规</text>
+    <text x="320" y="78" text-anchor="middle" font-size="11" fill="#2a3444">证据 + 置信度 + 时间戳</text>
+  </g>
+
+  <!-- 右节点：数据反哺 -->
+  <g>
+    <rect x="480" y="200" width="145" height="84" rx="10" fill="#fff" stroke="#2b5ce6" stroke-width="1.5"/>
+    <text x="552" y="220" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2b5ce6">② 数据反哺</text>
+    <text x="552" y="240" text-anchor="middle" font-size="11" fill="#2a3444">客户画像（谁在投诉）</text>
+    <text x="552" y="258" text-anchor="middle" font-size="11" fill="#2a3444">生命周期 · 复购节奏</text>
+    <text x="552" y="276" text-anchor="middle" font-size="11" fill="#2a3444">（何时二次购买）</text>
+  </g>
+
+  <!-- 下节点：反哺客服 -->
+  <g>
+    <rect x="240" y="352" width="160" height="68" rx="10" fill="#fff" stroke="#1f9d55" stroke-width="1.5"/>
+    <text x="320" y="372" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1f9d55">③ 反哺客服</text>
+    <text x="320" y="390" text-anchor="middle" font-size="11" fill="#2a3444">质检关注点 · 培训课件</text>
+    <text x="320" y="408" text-anchor="middle" font-size="11" fill="#2a3444">知识库增补（待发布）</text>
+  </g>
+
+  <!-- 左节点：客服进化 -->
+  <g>
+    <rect x="15" y="196" width="145" height="84" rx="10" fill="#fff" stroke="#8a64d6" stroke-width="1.5"/>
+    <text x="87" y="216" text-anchor="middle" font-size="12.5" font-weight="700" fill="#8a64d6">④ 客服进化</text>
+    <text x="87" y="236" text-anchor="middle" font-size="11" fill="#2a3444">AI 客服更智能</text>
+    <text x="87" y="254" text-anchor="middle" font-size="11" fill="#2a3444">人工客服补短板</text>
+    <text x="87" y="272" text-anchor="middle" font-size="11" fill="#2a3444">下一轮质检更严</text>
+  </g>
+</svg>
+
+<h3>质检证据如何反哺（两个闭环，一套证据）</h3>
+<table>
+  <tr><th style="width:22%">反哺对象</th><th>从质检拿到什么</th><th>产出 / 动作</th></tr>
+  <tr><td><b>AI 客服（规则闭环）</b></td><td>违规证据 + 命中表达</td><td>规则包自动增强（pattern 新规则加入即生效，版本随整改递增）→ 同 class 违规下次必拦 → <b>重检验证 fail→pass</b>（实测 0.00→1.00）</td></tr>
+  <tr><td><b>AI 客服（知识闭环）</b></td><td>答非所问 / 幻觉 / 信息缺失</td><td>自动生成知识补全条目（pending_publish）→ 发布后进入检索链 → 客服回答更准确</td></tr>
+  <tr><td><b>人工客服（培训闭环）</b></td><td>高频违规点 + 错误→正确话术</td><td><b>培训课件</b>自动生成：违规类型统计、Top 违规表达、正确话术模板 → 补人类客服短板</td></tr>
+  <tr><td><b>运营（客户洞察闭环）</b></td><td>客户输入 / 诉求域 / 风险 / 关联订单</td><td><b>客户画像</b>（谁在投诉、诉求分布）→ 客服资源分配；<b>生命周期与复购节奏</b>（复购率、平均复购周期、二次购买时机）→ 关怀与营销策略</td></tr>
+</table>
+<p style="margin-top:10px"><b>为什么这是关键差异化</b>：平台自带质检（飞鸽等）止步于"拦一条"，我们的质检证据反哺"拦一类 → 培训一队人 → 洞察一群客户"——质检成本转化为持续进化的客服资产，这是 Agent 客服规模化运营的刚需能力。</p>
+
 <h3>演示视频与代码仓库</h3>
 <ul>
   <li>代码仓库：<span class="badge">GitHub（公开，见提交邮件）</span> · 本地一键运行：<b>setup → start → 打开 /quality-panel.html</b></li>
@@ -132,7 +203,7 @@
   <li>数据合规：全部使用合成/脱敏场景数据，无真实客户信息。</li>
 </ul>
 
-<h2>五、创新点（技术创新维度）</h2>
+<h2>六、创新点（技术创新维度）</h2>
 <table>
   <tr><th>创新点</th><th>价值</th></tr>
   <tr><td>Jev 毫秒级裁判接入 Agent 质检</td><td>首个将 System One 决策模型用于质检的工具；全量质检从"不可能"变"0.4ms/条"</td></tr>
@@ -145,7 +216,7 @@
   <tr><td>数据反哺飞轮</td><td>质检数据反哺知识库/培训课件/客户画像/复购分析，让客服持续进化（企业级质量飞轮）</td></tr>
 </table>
 
-<h2>六、开源治理与长期发展</h2>
+<h2>七、开源治理与长期发展</h2>
 <h3>开源治理（20%）</h3>
 <ul>
   <li>许可证：MIT（详见 docs/LICENSE_DECISION.md，第三方依赖许可齐备）；</li>
@@ -163,7 +234,7 @@
 </ul>
 
 <div class="foot">
-  AgentCheck · 2026 上海开源软件应用创新大赛作品介绍（V1.0）· 内部版本，数据均为合成/脱敏
+  AgentCheck · 作者 guannan · 2026 上海开源软件应用创新大赛作品介绍（V1.1）· 数据均为合成/脱敏
 </div>
 
 </body>

@@ -1,0 +1,6 @@
+﻿PDF 已生成: E:\AIworkspace\projects\Project 014-Agent质检工具\deliverables\作品介绍-Agent质检工具-v1.1.pdf 408809 bytes
+截图1: panel-init
+截图2: panel-fail
+截图3: panel-batch
+截图4: panel-finance
+全部完成

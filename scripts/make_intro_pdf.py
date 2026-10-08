@@ -6,7 +6,7 @@ from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
 INTRO_HTML = ROOT / "deliverables/作品介绍-Agent质检工具.html"
-INTRO_PDF = ROOT / "deliverables/作品介绍-Agent质检工具.pdf"
+INTRO_PDF = ROOT / "deliverables/作品介绍-Agent质检工具-v1.1.pdf"
 SHOTS = ROOT / "deliverables/shots"
 
 
