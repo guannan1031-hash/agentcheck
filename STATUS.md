@@ -1,10 +1,11 @@
 # 项目进度 — Project 014 · AgentCheck 质检工具
 
 ## 最近更新
-- 更新时间：2026-10-07
-- 当前状态：**D1–D4 全部完成**，含质检反馈闭环；待 GitHub 发布 + 三件套邮件提交
+- 更新时间：2026-10-08
+- 当前状态：**D1–D4 全部完成 + GitHub 已公开发布**；待三件套邮件提交
 
 ## 已完成
+- [2026-10-08] **GitHub 公开仓库已发布**：https://github.com/guannan1031-hash/agentcheck（public，main 分支，含全部代码/README/规则包/面板/测试；已设本地 remote origin）。
 - [2026-10-07] **D1**：演示 Agent 跑通（uvicorn @ 8878）、数据分布分析（218 场景 / 218 benchmark）、电商规则包 schema（5 维度 × 8 规则）。
 - [2026-10-07] **D2**：三通道质检引擎——规则层（复用 safety.py + 新增合规/金融正则 + **通用 pattern 规则**）、裁判层（JevJudge / LLMJudge / 降级链）、引擎聚合（维度加权 → overall → 人工复核升级）。引擎 12 项测试通过。
 - [2026-10-07] **D3**：质检 API（/check /batch /packages /health）+ 汽车金融第二规则包（可插拔性 4 项测试）+ 质检工作台面板（CSP 兼容：外置 CSS/JS + addEventListener）。批量 40 条实测 0.4ms/条、全部分类正确。
@@ -22,8 +23,8 @@
 - 视频：demo.mp4 76s @25fps 1280×720，抽帧验证内容正确（违规报告/闭环/批量统计）。
 
 ## 已知问题 / 待办
-- **GitHub 公开仓库未发布**：无 PAT / gh 未装；需用户提供 PAT 或浏览器协助（`git credential fill` 无凭证会挂起，勿再试）。
-- **三件套邮件提交未发**（截止 10-11 24:00，发 oscc@oschina.cn）：代码仓库链接 + 介绍 PDF + 演示视频链接；需用户账号发送或代写草稿待确认。
+- **GitHub 公开仓库已发布**（guannan1031-hash/agentcheck，public）。
+- **三件套邮件提交未发**（截止 10-11 24:00，发 oscc@oschina.cn）：仓库链接 https://github.com/guannan1031-hash/agentcheck + 附件《作品介绍-Agent质检工具.pdf》+ demo.mp4；草稿在 deliverables\提交邮件-草稿.md，需用户邮箱发出。
 - 知识补全整改条目写入 demo-data/knowledge_additions.json（pending_publish），未并入 006 /api/knowledge 检索链（演示可展示新增条目与发布流程）。
 - 014 的 AGENTS.md 为 006 旧身份（路径 /Users/ekzc 失效），公开仓库前建议重写。
 - Jev API Key 未提供：演示跑 rule-only，面板标"裁判：规则层 only（未配置裁判）"；Jev 是核心卖点，建议至少一次真实 Jev 判定。
