@@ -2,10 +2,12 @@
 
 ## 最近更新
 - 更新时间：2026-10-08
-- 当前状态：**D1–D4 全部完成 + GitHub 已公开发布**；待三件套邮件提交
+- 当前状态：**材料 V1.1 全部完成**（PDF 数据飞轮章节 + 署名；视频 AI 配音 + 署名结尾卡）；待三件套邮件提交
 
 ## 已完成
-- [2026-10-08] **GitHub 公开仓库已发布**：https://github.com/guannan1031-hash/agentcheck（public，main 分支，含全部代码/README/规则包/面板/测试；已设本地 remote origin）。
+- [2026-10-08] **作品介绍 v1.1**：新增「数据飞轮：质检→数据反哺→客服进化」章节（SVG 环形图 + 四闭环反哺表）、排版压缩消除页间大空白、署名 guannan·AgentCheck（PDF 408KB / 6 页）。
+- [2026-10-08] **演示视频带配音**：AI 中文女声旁白（83.8s 原音 → 1.1x 对齐 76.4s 视频），aac 立体声、响度 -20.8dB 健康；结尾卡署名。demo-with-voice.mp4（2.77MB）。
+- [2026-10-08] GitHub 公开仓库已发布：https://github.com/guannan1031-hash/agentcheck。
 - [2026-10-07] **D1**：演示 Agent 跑通（uvicorn @ 8878）、数据分布分析（218 场景 / 218 benchmark）、电商规则包 schema（5 维度 × 8 规则）。
 - [2026-10-07] **D2**：三通道质检引擎——规则层（复用 safety.py + 新增合规/金融正则 + **通用 pattern 规则**）、裁判层（JevJudge / LLMJudge / 降级链）、引擎聚合（维度加权 → overall → 人工复核升级）。引擎 12 项测试通过。
 - [2026-10-07] **D3**：质检 API（/check /batch /packages /health）+ 汽车金融第二规则包（可插拔性 4 项测试）+ 质检工作台面板（CSP 兼容：外置 CSS/JS + addEventListener）。批量 40 条实测 0.4ms/条、全部分类正确。
