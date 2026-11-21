@@ -9,7 +9,7 @@ AgentCheck 是一个**引擎通用、规则可插拔、裁判可替换**的 Agen
 3. **LLM 深析兜底**（DeepSeek / 智谱）：Jev 不可用时自动降级，未配置裁判时规则层兜底，永不静默放过；
 4. **置信度分级升级**：critical 违规或低置信判定 → 自动进入人工复核队列，输出证据链可整改可审计。
 
-从"人工抽检（覆盖率 <5%）"升级为"毫秒级全量质检"：批量质检实测单条平均 **0.4ms**。
+从“人工抽检（覆盖率 <5%）”升级为“毫秒级全量质检”：批量质检实测单条平均 **0.4ms**。
 
 ## 功能特性
 
@@ -116,7 +116,8 @@ python scripts/verify_quality_api.py          # API 真实字节级验证
 
 ## 开源治理
 
-- 许可证：GPL-3.0（允许商用但衍生必须开源，防闭源商用；SaaS 防护可升级 AGPL-3.0，详见 `docs/LICENSE_DECISION.md`，第三方依赖许可齐备）
+- 许可证：**双许可**——社区版 GPL-3.0（允许商用，但衍生作品须以 GPL-3.0 开源）；闭源集成 / 私有化部署可另行取得商业许可（详见下方 License 与 `docs/LICENSE_DECISION.md`）
+- 贡献治理：外部贡献需同意 `CLA.md`，版权人据此可对同一作品提供两种授权
 - 工程规范：CONTRIBUTING.md / SECURITY.md / AGENTS.md
 - 部署：Docker Compose 一键启动（`compose.yaml`）
 
@@ -125,8 +126,22 @@ python scripts/verify_quality_api.py          # API 真实字节级验证
 - 行业规则包市场（医疗 / 政务 / 出海）
 - 接入 Dify / N8N / LangGraph 工作流节点，成为 Agent 链路标准质检环节
 - 本地化 / 私有化部署（金融、政务数据不出域）
-- 质检报告反哺提示词与规则优化，形成"检出 → 整改 → 再检"闭环
+- 质检报告反哺提示词与规则优化，形成“检出 → 整改 → 再检”闭环
 
 ## License
 
-GPL-3.0 License. See [LICENSE](LICENSE) for details.
+本项目采用双许可：
+
+1. **社区版：GPL-3.0**。见 [LICENSE](LICENSE)。可自由使用、修改、分发，衍生作品须同样以 GPL-3.0 开源并提供源代码。
+2. **商业许可**。需要闭源集成、嵌入自有产品、私有化交付而不开源时，可取得商业许可，联系 guannan1031@163.com。
+
+贡献者提交内容前须同意 [CLA.md](CLA.md)：作品著作权归版权人，贡献者授予其非独占的版权与专利许可（含再许可权），从而支撑上述双许可。
+
+第三方组件与模型按各自许可证使用，本项目不主张其权利：
+
+| 组件 | 许可证 | 用途 |
+| --- | --- | --- |
+| Decision 3.0 / d3 决策模型（vLLM Semantic Router） | Apache-2.0（可商用、可自托管） | 条目级判定与弃权，可离线部署 |
+| Jev（TypeSafe System One） | 商业 API，按服务条款 | 语义快判，可选裁判 |
+| FastAPI / React 等依赖 | 见 `requirements.lock.txt` 与 `licenses/` | 运行时与前端 |
+| JJG 705-2014、JJG 178-2007、JJF 1059、CNAS-CL01 | 公开标准 | 仅引用条款编号与公开要求，不复制标准正文 |
